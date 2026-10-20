@@ -1,5 +1,6 @@
 import { enter } from "./motion.js";
-import config from "./config.js";
+import config from "./config.mjs";
+import { initTracking } from "./tracking.js";
 
 const attribution = {};
 const params = new URLSearchParams(location.search);
@@ -20,22 +21,8 @@ function record(event, fields = {}) {
 }
 window.KAPI_EVENTS = { record };
 
-let whatsapp;
-try {
-  const url = new URL(config.whatsappUrl);
-  if (
-    url.protocol === "https:" &&
-    ["wa.me", "api.whatsapp.com"].includes(url.hostname)
-  )
-    whatsapp = url.href;
-} catch {
-  /* Os links HTML continuam funcionando sem configuração válida. */
-}
-document.querySelectorAll("[data-whatsapp]").forEach((link) => {
-  if (whatsapp) link.href = whatsapp;
-  link.addEventListener("click", () =>
-    record("kapi_whatsapp_click", { cta_position: link.dataset.whatsapp }),
-  );
+initTracking({
+  onContact: (link) => record("kapi_whatsapp_click", { cta_position: link.dataset.whatsapp }),
 });
 document.querySelectorAll("[data-preview]").forEach((link) => {
   const project = config.projects[link.dataset.preview];
@@ -73,7 +60,10 @@ if (privacy && typeof privacy.showModal === "function") {
     .addEventListener("click", () => privacy.close());
   privacy.addEventListener("close", () => {
     document.body.classList.remove("dialog-is-open");
-    privacyTrigger?.focus({ preventScroll: true });
+    const next = privacyTrigger?.getClientRects().length
+      ? privacyTrigger
+      : document.querySelector('.hero-cta');
+    next?.focus({ preventScroll: true });
   });
   privacy.addEventListener("click", (event) => {
     if (event.target !== privacy) return;

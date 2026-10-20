@@ -1,7 +1,7 @@
 {
   "date": "2026-10-20",
   "status": "passed",
-  "automated_tests": 37,
+  "automated_tests": 49,
   "command": "npm test",
   "viewports": [
     320,
@@ -46,7 +46,12 @@
     "Sem rolagem horizontal nos tamanhos testados",
     "Acesso do servidor pela interface de rede e bloqueio de arquivos internos",
     "Rodapé Kapi Digital, metadados SEO, canonical e JSON-LD consistentes",
-    "Robots permite rastreamento, sitemap XML público e demonstrações com noindex"
+    "Robots permite rastreamento, sitemap XML público e demonstrações com noindex",
+    "Consentimento na oferta desktop e barra mobile, restauração após permitir ou recusar",
+    "Pixel apenas após aceite; expiração, revogação, reaceite e sincronização entre abas",
+    "PageView por documento e Contact único em todos os 11 links WhatsApp, com origem",
+    "Clique por teclado, bundle duplicado, Pixel bloqueado, erro do SDK e storage indisponível",
+    "WhatsApp funciona sem JavaScript, sem aceite e com Pixel bloqueado"
   ],
   "javascript_errors": [],
   "scroll_cpu_4x": {
@@ -60,5 +65,27 @@
     "method": "Chromium mobile 390 px, CPU 4x, 360 quadros de rolagem; execução isolada após a suíte. Verificação de opacidade separada para não interferir na medição."
   },
   "header_update_validation": "Suíte completa com 37 testes passou, incluindo servidor, SEO, cabeçalho responsivo e direções das entradas.",
-  "limitations": "Testes locais em navegadores e emulação mobile; não representam todos os aparelhos físicos nem a hospedagem em produção."
+  "limitations": "Testes locais em navegadores e emulação mobile; não representam todos os aparelhos físicos nem a hospedagem em produção.",
+  "tracking_validation": {
+    "test_file": "tests/tracking.spec.js",
+    "automated_tests": 12,
+    "touch_browsers": [
+      "Chromium (Pixel 7)",
+      "WebKit (iPhone 13)"
+    ],
+    "official_sdk": {
+      "script_http": 200,
+      "pixel_config_http": 200,
+      "pixel_id": "3531138630396964",
+      "intercepted_events": [
+        "PageView",
+        "Contact"
+      ],
+      "contact_location": "hero",
+      "errors": [],
+      "events_delivered_to_meta": false,
+      "method": "SDK oficial em navegador com domínio kapi.digital apontando para build local; requisições /tr interceptadas antes de envio para não gerar conversões fictícias."
+    },
+    "meta_events_manager_receipt": "Não verificado: requer sessão autenticada na conta Meta."
+  }
 }

@@ -1,5 +1,13 @@
 const { test, expect } = require("@playwright/test");
 
+// As regressões visuais exercitam o estado após a escolha. O consentimento é
+// validado separadamente em tracking.spec.js, incluindo a primeira visita.
+test.beforeEach(async ({ context }) => {
+  await context.addInitScript(() => localStorage.setItem("kapi-marketing-consent-v1", JSON.stringify({
+    version: 1, marketing: false, updatedAt: Date.now(),
+  })));
+});
+
 test("identidade e SEO descrevem a Kapi Digital e o serviço real", async ({ page, request }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
@@ -163,7 +171,7 @@ test("mobile: menu, WhatsApp, orçamento ao rolar e retorno ao topo", async ({
   await expect(page.locator(".mobile-menu-contact")).toBeVisible();
   await expect(page.locator(".mobile-menu-contact")).toHaveAttribute(
     "href",
-    "https://wa.me/message/3DBMZ5ZZHD4NC1",
+    "https://wa.me/5511982252058?text=Ol%C3%A1%21%20Falo%20com%20a%20Kapi%20Digital%3F%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento.",
   );
   await page.keyboard.press("Escape");
   await expect(page.locator("#mobile-menu")).toBeHidden();
@@ -179,7 +187,7 @@ test("mobile: menu, WhatsApp, orçamento ao rolar e retorno ao topo", async ({
   ).toBe(12);
   await expect(page.locator(".header-quote")).toBeVisible();
   await expect(page.locator(".header-quote-button")).toHaveAttribute(
-    "href", "https://wa.me/message/3DBMZ5ZZHD4NC1",
+    "href", "https://wa.me/5511982252058?text=Ol%C3%A1%21%20Falo%20com%20a%20Kapi%20Digital%3F%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento.",
   );
   await page.locator(".menu-toggle").click();
   await expect(page.locator(".mobile-menu-contact")).toBeInViewport();
@@ -229,7 +237,7 @@ test("FAQ e privacidade com restauração de foco", async ({ page }) => {
   await faq.locator("summary").click();
   await expect(faq).toHaveAttribute("open", "");
   await expect(faq.locator("p")).toBeVisible();
-  const link = page.locator("[data-privacy]").first();
+  const link = page.locator("footer [data-privacy]");
   await link.click();
   await expect(page.locator("#privacy-dialog")).toBeVisible();
   await page.keyboard.press("Escape");
@@ -356,7 +364,7 @@ test("conteúdo e navegação básica sem JavaScript", async ({ browser }) => {
   await expect(page.locator("[data-entry-search]")).toBeHidden();
   await expect(page.locator(".hero-cta")).toHaveAttribute(
     "href",
-    "https://wa.me/message/3DBMZ5ZZHD4NC1",
+    "https://wa.me/5511982252058?text=Ol%C3%A1%21%20Falo%20com%20a%20Kapi%20Digital%3F%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento.",
   );
   expect(
     await page.evaluate(

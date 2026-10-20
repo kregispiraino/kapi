@@ -10,7 +10,7 @@ O rodapé apresenta a marca Kapi Digital e o CNPJ. A identificação empresarial
 
 ## Atendimento e portfólio
 
-Confirme o WhatsApp `https://wa.me/message/3DBMZ5ZZHD4NC1`, preservado da versão anterior e originalmente usado pela ByAskora. Confira perfil, mensagem e responsável pelo atendimento.
+Todos os CTAs usam o WhatsApp Kapi `5511982252058`, com a mensagem “Olá! Falo com a Kapi Digital? Gostaria de solicitar um orçamento.”. A fonte é `assets/js/config.mjs`; execute o build após alterá-la para sincronizar também os links HTML.
 
 Teste os quatro projetos: Askora abre seu endereço externo; Osler, AML e Gear SEO abrem as cópias locais. As capas são as capturas usadas no portfólio ByAskora. Preserve a pasta `projetos/` e seus recursos na publicação.
 
@@ -18,7 +18,7 @@ Teste os quatro projetos: Askora abre seu endereço externo; Osler, AML e Gear S
 
 Domínio e HTTPS ativos em `https://kapi.digital/`. A página principal tem canonical, imagem de compartilhamento, dados estruturados e indexação permitida. `robots.txt` informa o sitemap público em `https://kapi.digital/sitemap.xml`. As demonstrações e a página de privacidade continuam fora do sitemap e com `noindex`. O envio do sitemap e a inspeção da URL no Google Search Console dependem de acesso a uma propriedade verificada; não foram executados nesta revisão. A posição nas buscas depende do rastreamento, do conteúdo, da concorrência e da reputação do domínio.
 
-Ao instalar ferramentas de medição, anúncios ou coleta de dados, revise o aviso de privacidade e os controles aplicáveis. Os eventos atuais ficam apenas na memória, sem envio a servidores de análise.
+O Pixel Kapi `3531138630396964` só carrega após consentimento em `kapi.digital`. A escolha aparece no lugar da oferta na primeira visita e pode ser alterada em Privacidade. O aceite registra `PageView`, e cada clique válido de WhatsApp registra `Contact` com a origem do botão. O clique não comprova mensagem ou venda. Consulte o README para validar nos Eventos de teste da Meta. Não há integração de anúncios do Askora.
 
 No Railway, use `npm start`: o servidor escuta em `0.0.0.0` na porta fornecida por `PORT`. No serviço `kapi`, ambiente `kapi` do projeto `caring-harmony`, a verificação HTTP está configurada em `/`, com timeout de 60 segundos. O servidor disponibiliza apenas as páginas públicas, `assets/`, `projetos/`, `robots.txt` e `sitemap.xml`; arquivos internos do repositório não são servidos.
 
