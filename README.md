@@ -24,7 +24,7 @@ Os arquivos compilados já estão em `assets/build`, portanto `npm start` ou um 
 - `assets/css/animations.css`: abertura de busca e demonstração de sites.
 - `assets/js/config.mjs`: WhatsApp, Pixel da Kapi, consentimento, versão e URLs do portfólio.
 - `assets/js/tracking.js`: PageView, Contact e consentimento; `tracking-entry.js` atende às demonstrações.
-- `assets/css/consent.css`: escolha de privacidade no espaço da oferta e controles de revogação.
+- `assets/css/consent.css`: card de privacidade e controles de revogação.
 - `assets/js/main.js`: menu, privacidade, links e eventos em memória.
 - `assets/js/motion.js`: entradas discretas ao rolar, com animações finitas.
 - `assets/js/web-demo.js` e `web-viewport.js`: carrossel e transição Desktop/Mobile.
@@ -64,7 +64,7 @@ Execute `npm run build` e publique `index.html`, `privacidade.html`, `robots.txt
 
 A página principal permite indexação em `https://kapi.digital/`, com canonical, sitemap, metadados sociais e dados estruturados de empresa, site, página e serviço. Privacidade e demonstrações do portfólio permanecem com `noindex`; o `robots.txt` permite rastreamento para os buscadores lerem essas diretivas. Consulte `docs/SEO.json` para a revisão. O Meta Pixel `3531138630396964` é carregado de forma assíncrona somente em `kapi.digital`, após aceite. Registra `PageView` por documento e `Contact` por clique válido no WhatsApp, incluindo a origem em `button_location`. Âncoras, modal, hover e cliques sintéticos não registram conversão. O `window.dataLayer` continua apenas em memória.
 
-Na primeira visita, a escolha de privacidade ocupa o bloco da oferta no desktop e a barra inferior no mobile. Permitir ou recusar restaura o orçamento; apenas permitir ativa o Pixel. A escolha fica neste navegador por até 180 dias e pode ser alterada em Privacidade. Recusar mantém todos os contatos disponíveis; revogar interrompe eventos futuros e remove os cookies acessíveis da Meta. A integração não inclui imagem de rastreamento sem JavaScript.
+Na primeira visita, um card branco compacto de privacidade aparece centralizado na parte inferior da tela; no mobile, fica acima da barra de orçamento. Permitir tem botão preto e Não permitir aparece como texto. O orçamento continua disponível durante a escolha; apenas permitir ativa o Pixel. A escolha fica neste navegador por até 180 dias e pode ser alterada em Privacidade. Recusar mantém todos os contatos disponíveis; revogar interrompe eventos futuros e remove os cookies acessíveis da Meta. A integração não inclui imagem de rastreamento sem JavaScript.
 
 Todos os links WhatsApp usam o número `5511982252058` e a mensagem definida em `config.mjs`. O build sincroniza os hrefs estáticos, inclusive no portfólio AML, para funcionarem mesmo sem JavaScript. Cliques mantêm a abertura nativa, sem esperar pela Meta. Um clique não comprova conversa ou venda.
 

@@ -90,10 +90,8 @@ export function initTracking({ onContact } = {}) {
 
   function renderConsent() {
     const allowed = granted();
-    document.querySelectorAll("[data-consent-slot]").forEach((slot) => {
-      slot.classList.toggle("consent-pending", consent === null);
-      slot.querySelector("[data-consent-notice]").hidden = consent !== null;
-    });
+    const notice = document.querySelector("[data-consent-notice]");
+    if (notice) notice.hidden = consent !== null;
     document.querySelectorAll("[data-consent-status]").forEach((element) => {
       element.textContent = allowed
         ? "Publicidade autorizada. Você pode revogar sua escolha a qualquer momento."
@@ -118,31 +116,22 @@ export function initTracking({ onContact } = {}) {
     renderConsent();
   }
 
-  // Reutiliza a oferta existente: a escolha nunca é um clique de orçamento.
-  const slots = [...document.querySelectorAll(".hero-offer, .mobile-cta")];
-  if (!slots.length && !document.querySelector("[data-consent-controls]")) {
-    const slot = document.createElement("aside");
-    slot.className = "consent-fallback";
-    document.body.append(slot);
-    slots.push(slot);
-  }
-  slots.forEach((slot) => {
-    slot.dataset.consentSlot = "";
-    const notice = document.createElement("div");
-    notice.className = "consent-inline";
+  if (!document.querySelector(".privacy-page")) {
+    const notice = document.createElement("aside");
+    notice.className = "consent-card";
+    notice.classList.toggle("consent-card--above-quote", Boolean(document.querySelector(".mobile-cta")));
     notice.dataset.consentNotice = "";
+    notice.setAttribute("aria-label", "Preferências de privacidade");
     notice.hidden = true;
     notice.innerHTML = `
-      <div class="consent-copy">
-        <a href="/privacidade.html" data-privacy>Privacidade</a>
-        <p>Cookies Meta: visitas e cliques no WhatsApp para medir anúncios.</p>
-      </div>
+      <a class="consent-title" href="/privacidade.html" data-privacy>Sua privacidade</a>
+      <p>Podemos usar cookies da Meta para medir visitas, cliques no WhatsApp e nossos anúncios?</p>
       <div class="consent-choices">
-        <button type="button" data-consent-action="deny">Recusar</button>
-        <button type="button" data-consent-action="grant">Permitir <span aria-hidden="true">↗</span></button>
+        <button type="button" data-consent-action="deny">Não permitir</button>
+        <button type="button" data-consent-action="grant">Permitir</button>
       </div>`;
-    slot.append(notice);
-  });
+    document.body.append(notice);
+  }
   document.querySelectorAll("[data-consent-controls]").forEach((element) => {
     element.innerHTML = `
       <p data-consent-status role="status" aria-live="polite"></p>
@@ -155,10 +144,7 @@ export function initTracking({ onContact } = {}) {
   document.addEventListener("click", (event) => {
     const button = event.target.closest?.("[data-consent-action]");
     if (!button || !event.isTrusted) return;
-    const slot = button.closest("[data-consent-slot]");
     chooseConsent(button.dataset.consentAction === "grant");
-    const next = slot?.querySelector("a[data-whatsapp]");
-    if (next?.getClientRects().length) next.focus({ preventScroll: true });
   });
 
   function whatsappLink(element) {

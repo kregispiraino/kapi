@@ -38,7 +38,7 @@ async function open(page, path = "/") {
   await expect(page.locator("html")).not.toHaveClass(/entry-active/);
 }
 async function grant(page) {
-  await page.locator('.hero-offer [data-consent-action="grant"]').click();
+  await page.locator('[data-consent-notice] [data-consent-action="grant"]').click();
   await expect.poll(() => events(page, "PageView")).toHaveLength(1);
 }
 async function contact(page, locator) {
@@ -51,15 +51,20 @@ async function contact(page, locator) {
   await popup.close();
 }
 
-test("primeira visita usa a oferta, recusa restaura orçamento e não carrega Meta", async ({ page, context, baseURL }) => {
+test("primeira visita mostra card independente, preserva orçamento e recusa não carrega Meta", async ({ page, context, baseURL }) => {
   const sdk = await setup(context, baseURL);
   await open(page);
   const slot = page.locator(".hero-offer");
-  await expect(slot.locator("[data-consent-notice]")).toBeVisible();
-  await expect(slot.locator(".hero-price")).toBeHidden();
-  await expect(page.locator(".consent-fallback")).toHaveCount(0);
+  await expect(page.locator("[data-consent-notice]")).toBeVisible();
+  await expect(slot.locator(".hero-price")).toBeVisible();
+  const card = await page.locator("[data-consent-notice]").boundingBox();
+  // O layout reserva 15 px para a barra de rolagem no desktop.
+  const viewportWidth = await page.evaluate(() => document.body.getBoundingClientRect().width);
+  expect(card.width).toBeLessThanOrEqual(320);
+  expect(Math.abs(card.x + card.width / 2 - viewportWidth / 2)).toBeLessThan(1);
   expect(sdk.requests()).toBe(0);
-  await slot.locator('[data-consent-action="deny"]').click();
+  await page.locator('[data-consent-notice] [data-consent-action="deny"]').click();
+  await expect(page.locator("[data-consent-notice]")).toBeHidden();
   await expect(slot.locator(".hero-price")).toBeVisible();
   await contact(page, slot.locator("[data-whatsapp]"));
   await page.reload();
@@ -110,18 +115,24 @@ test("todos os CTAs desktop têm URL padronizada e exatamente um Contact por cli
 });
 
 for (const width of [320, 390]) {
-  test(`mobile ${width}: escolha na barra, orçamento restaurado e CTAs do menu`, async ({ page, context, baseURL }) => {
+  test(`mobile ${width}: card acima da barra, orçamento preservado e CTAs do menu`, async ({ page, context, baseURL }) => {
     await page.setViewportSize({ width, height: 844 });
     const sdk = await setup(context, baseURL);
     await open(page);
     const bar = page.locator(".mobile-cta");
-    await expect(bar.locator("[data-consent-notice]")).toBeVisible();
-    await expect(bar.locator("[data-whatsapp]")).toBeHidden();
+    const notice = page.locator("[data-consent-notice]");
+    await expect(notice).toBeVisible();
+    await expect(bar.locator("[data-whatsapp]")).toBeVisible();
+    const cardBox = await notice.boundingBox();
+    const barBox = await bar.boundingBox();
+    expect(cardBox.y + cardBox.height).toBeLessThan(barBox.y);
+    expect(Math.abs(cardBox.x + cardBox.width / 2 - width / 2)).toBeLessThan(1);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     const logoBefore = await page.locator(".nav-pill .wordmark").boundingBox();
     await page.evaluate(() => scrollTo(0, 400));
-    await expect(bar).toBeVisible();
-    await bar.locator('[data-consent-action="grant"]').click();
+    await expect(bar).toBeHidden();
+    await notice.locator('[data-consent-action="grant"]').click();
+    await expect(notice).toBeHidden();
     await expect.poll(() => events(page, "PageView")).toHaveLength(1);
     await contact(page, page.locator('[data-whatsapp="orcamento-menu-mobile"]'));
     await page.evaluate(() => scrollTo(0, 0));
@@ -172,7 +183,7 @@ test("revogar interrompe eventos, remove cookies e novo aceite reativa sem PageV
 test("Pixel bloqueado ou com erro não impede WhatsApp; revogar limpa eventos pendentes", async ({ page, context, baseURL }) => {
   await setup(context, baseURL, { blocked: true });
   await open(page);
-  await page.locator('.hero-offer [data-consent-action="grant"]').click();
+  await page.locator('[data-consent-notice] [data-consent-action="grant"]').click();
   await contact(page, page.locator('[data-whatsapp="abertura"]'));
   expect(await page.evaluate(() => fbq.queue.filter(c => c[0] === "track").length)).toBe(2);
   await page.locator("footer [data-privacy]").click();
@@ -191,7 +202,7 @@ test("consentimento expirado e storage indisponível começam sem Pixel", async 
     Storage.prototype.setItem = () => { throw new Error("Storage bloqueado"); };
   }, KEY);
   await open(page);
-  await expect(page.locator('.hero-offer [data-consent-notice]')).toBeVisible();
+  await expect(page.locator('[data-consent-notice]')).toBeVisible();
   expect(sdk.requests()).toBe(0);
   await grant(page);
   await contact(page, page.locator('[data-whatsapp="abertura"]'));
