@@ -100,5 +100,21 @@
       "Abrir o card não muda o consentimento nem gera eventos",
       "Nova escolha fecha o card e devolve o foco ao link"
     ]
+  },
+  "showcase_redesign_validation": {
+    "command": "npm test -- tests/site.spec.js",
+    "tests_passed": 32,
+    "examples": [
+      "forma: mobiliário",
+      "mesa: restaurante",
+      "elo: consultoria"
+    ],
+    "checks": [
+      "Fotografia como fundo da abertura nos três exemplos",
+      "Inspeção visual das seis composições: três desktop e três mobile",
+      "Troca de dispositivo conserva altura do palco",
+      "WebKit com toque: carrossel, desktop/mobile, imagens e textos dentro da moldura"
+    ],
+    "javascript_errors": []
   }
 }
