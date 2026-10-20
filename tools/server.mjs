@@ -1,8 +1,8 @@
-/** Servidor local: arquivos estáticos, compressão de texto e leitura parcial de vídeos. */
+/** Servidor estático: arquivos públicos, compressão e leitura parcial de vídeos. */
 import http from "node:http";
 import { createReadStream } from "node:fs";
 import { stat } from "node:fs/promises";
-import { resolve, sep, extname } from "node:path";
+import { resolve, relative, sep, extname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { pipeline } from "node:stream/promises";
 import { createGzip } from "node:zlib";
@@ -43,6 +43,17 @@ const server = http.createServer(async (req, res) => {
     if (path !== resolve(root) && !path.startsWith(resolve(root) + sep)) {
       res.writeHead(403);
       res.end("Acesso negado.");
+      return;
+    }
+    const publicPath = relative(root, path).split(sep).join("/");
+    const publicFile = ["", "index.html", "privacidade.html", "robots.txt", "sitemap.xml"].includes(publicPath);
+    const publicDirectory = ["assets/", "projetos/"].some((prefix) => publicPath.startsWith(prefix));
+    if (
+      (!publicFile && !publicDirectory) ||
+      publicPath.split("/").some((segment) => segment.startsWith("."))
+    ) {
+      res.writeHead(404);
+      res.end("Arquivo não encontrado.");
       return;
     }
     let info = await stat(path);
@@ -127,8 +138,8 @@ server.on("error", (error) => {
   console.error(error.message);
   process.exit(1);
 });
-server.listen(port, "127.0.0.1", () =>
+server.listen(port, "0.0.0.0", () =>
   console.log(
-    `kapi.digital — abra http://localhost:${port}\nCtrl+C para encerrar.`,
+    `kapi.digital — servidor em 0.0.0.0:${port}\nLocal: http://localhost:${port}`,
   ),
 );

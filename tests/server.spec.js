@@ -1,4 +1,27 @@
 const { test, expect } = require("@playwright/test");
+const { networkInterfaces } = require("node:os");
+
+test("servidor aceita conexões pela interface de rede do contêiner", async ({ request, baseURL }) => {
+  const address = Object.values(networkInterfaces()).flat().find(
+    (entry) => entry.family === "IPv4" && !entry.internal,
+  )?.address;
+  test.skip(!address, "Ambiente sem interface IPv4 externa");
+  const url = new URL(baseURL);
+  url.hostname = address;
+  const response = await request.get(url.href);
+  expect(response.status()).toBe(200);
+  expect(await response.text()).toContain("kapi.digital");
+});
+
+test("servidor publica apenas os arquivos do site", async ({ request }) => {
+  for (const path of ["/.git/config", "/package.json", "/package-lock.json", "/README.md", "/docs/TESTES.json", "/tools/server.mjs", "/tests/site.spec.js", "/node_modules/esbuild/package.json", "/assets/../package.json"]) {
+    const response = await request.get(path);
+    expect(response.status(), path).toBe(404);
+  }
+  for (const path of ["/", "/privacidade.html", "/robots.txt", "/assets/build/site.css", "/projetos/osler/website/"]) {
+    expect((await request.get(path)).status(), path).toBe(200);
+  }
+});
 test("arquivos comprimidos, fonte local e revalidação", async ({ request }) => {
   const page = await request.get("/index.html", {
     headers: { "Accept-Encoding": "gzip" },

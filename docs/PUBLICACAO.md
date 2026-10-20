@@ -20,6 +20,6 @@ Após aprovação, configure domínio, HTTPS, endereço canônico e imagem de co
 
 Ao instalar ferramentas de medição, anúncios ou coleta de dados, revise o aviso de privacidade e os controles aplicáveis. Os eventos atuais ficam apenas na memória, sem envio a servidores de análise.
 
-O servidor Node incluído é apenas para uso local. Hospede os arquivos estáticos em serviço apropriado. Não é necessário publicar `docs/`, `tools/`, `README.md` ou os arquivos de teste junto com o site.
+No Railway, use `npm start`: o servidor escuta em `0.0.0.0` na porta fornecida por `PORT`. O arquivo `railway.json` configura a verificação HTTP em `/` antes de liberar cada deploy. O servidor disponibiliza apenas as páginas públicas, `assets/`, `projetos/`, `robots.txt` e `sitemap.xml`; arquivos internos do repositório não são servidos.
 
 Execute `npm run build` para atualizar `assets/build/` antes de publicar. A fonte Inter está em `assets/fonts/`, com sua licença. Ative gzip ou Brotli e a revalidação/cache de arquivos na hospedagem.

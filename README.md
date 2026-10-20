@@ -58,6 +58,6 @@ O favicon original, com “k” verde sobre preto, está em SVG e PNG em `assets
 
 ## Publicação
 
-Execute `npm run build` e publique `index.html`, `privacidade.html`, `robots.txt`, `assets/` e `projetos/`. Não publique `node_modules`, `tools`, testes ou relatórios. O servidor Node incluído serve para desenvolvimento local; configure compressão e cache também na hospedagem escolhida.
+Execute `npm run build` e publique `index.html`, `privacidade.html`, `robots.txt`, `assets/` e `projetos/`. Em hospedagem estática, não publique `node_modules`, `tools`, testes ou relatórios. No Railway, use `npm start`: o servidor usa `0.0.0.0` e a porta `PORT`, oferece compressão e revalidação, e restringe o acesso aos arquivos públicos. `railway.json` verifica a resposta HTTP de `/` antes de liberar o deploy.
 
 A prévia mantém `noindex, nofollow` e o bloqueio em `robots.txt`. Consulte `docs/PUBLICACAO.md` antes de publicar. Não há analytics externo: `window.dataLayer` contém somente eventos em memória, e um clique no WhatsApp não comprova uma conversa ou venda.
