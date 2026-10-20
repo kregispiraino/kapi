@@ -1,3 +1,4 @@
-# Prévia. Revisar docs/PUBLICACAO.md antes de publicar.
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://kapi.digital/sitemap.xml

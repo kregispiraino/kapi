@@ -18,9 +18,26 @@ test("servidor publica apenas os arquivos do site", async ({ request }) => {
     const response = await request.get(path);
     expect(response.status(), path).toBe(404);
   }
-  for (const path of ["/", "/privacidade.html", "/robots.txt", "/assets/build/site.css", "/projetos/osler/website/"]) {
+  for (const path of ["/", "/privacidade.html", "/robots.txt", "/sitemap.xml", "/assets/build/site.css", "/projetos/osler/website/"]) {
     expect((await request.get(path)).status(), path).toBe(200);
   }
+});
+
+test("buscadores acessam a página principal e o sitemap, sem indexar demonstrações", async ({ request }) => {
+  const robots = await request.get("/robots.txt");
+  const rules = await robots.text();
+  expect(rules).toContain("Allow: /");
+  expect(rules).not.toMatch(/^Disallow:\s*\/$/m);
+  expect(rules).toContain("Sitemap: https://kapi.digital/sitemap.xml");
+  const sitemap = await request.get("/sitemap.xml");
+  expect(sitemap.status()).toBe(200);
+  expect(sitemap.headers()["content-type"]).toContain("application/xml");
+  expect(await sitemap.text()).toContain("<loc>https://kapi.digital/</loc>");
+  expect(await sitemap.text()).not.toContain("/projetos/");
+  const home = await request.get("/");
+  expect(home.headers()["x-robots-tag"]).toBeUndefined();
+  const demo = await request.get("/projetos/osler/website/");
+  expect(demo.headers()["x-robots-tag"]).toContain("noindex");
 });
 test("arquivos comprimidos, fonte local e revalidação", async ({ request }) => {
   const page = await request.get("/index.html", {

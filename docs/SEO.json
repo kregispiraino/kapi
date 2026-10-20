@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-20",
+  "site": "https://kapi.digital/",
+  "focus": "Desenvolvimento de sites profissionais com qualidade e ótimo custo-benefício; projetos a partir de R$ 297.",
+  "before": [
+    {
+      "priority": "critical",
+      "finding": "Página principal com meta robots noindex, nofollow."
+    },
+    {
+      "priority": "critical",
+      "finding": "robots.txt bloqueava todo o rastreamento com Disallow: /."
+    },
+    {
+      "priority": "high",
+      "finding": "Ausência de sitemap e URL canônica."
+    },
+    {
+      "priority": "medium",
+      "finding": "Sem dados estruturados de empresa, site e serviço; metadados de compartilhamento incompletos."
+    },
+    {
+      "priority": "medium",
+      "finding": "Identidade do rodapé e descrição da oferta pouco consistentes com Kapi Digital e criação de sites."
+    }
+  ],
+  "implemented": [
+    "Rodapé com Kapi Digital; CNPJ preservado e identificação empresarial mantida na privacidade.",
+    "Página principal indexável; robots permite leitura dos arquivos e informa sitemap.",
+    "Sitemap com a URL canônica da página principal; MIME application/xml.",
+    "Título e descrição focados em criação de sites profissionais, qualidade, custo-benefício e investimento inicial.",
+    "Conteúdo visível descreve desenvolvimento de websites, design responsivo, SEO e contato via WhatsApp.",
+    "Dados JSON-LD Organization, WebSite, WebPage e Service, com oferta a partir de R$ 297.",
+    "Canonical e metadados Open Graph/Twitter com URL absoluta e logotipo existente.",
+    "Demonstrações do portfólio excluídas da indexação; privacidade noindex, follow; ambas fora do sitemap.",
+    "Conteúdo fictício da ilustração marcado data-nosnippet para não compor trechos de busca."
+  ],
+  "validation": {
+    "automated_tests_passed": 37,
+    "viewports_checked": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "horizontal_overflow": false,
+    "lighthouse": {
+      "version": "13.5.0",
+      "url": "http://127.0.0.1:3101/",
+      "category": "seo",
+      "score": 100,
+      "scope": "Auditoria técnica local; a pontuação não mede posicionamento nem comprova indexação.",
+      "manual_check": "JSON-LD parseado e conferido contra conteúdo visível; não foi enviado ao Rich Results Test."
+    }
+  },
+  "next_steps": [
+    "Enviar https://kapi.digital/sitemap.xml e inspecionar a página principal em uma propriedade verificada do Google Search Console. Não realizado: não há acesso configurado à propriedade nesta sessão.",
+    "Acompanhar indexação, impressões, consultas e pedidos de orçamento antes de atribuir resultados às alterações.",
+    "Ampliar conteúdo com casos reais e serviços específicos conforme os dados de busca e o escopo comercial; sem criar páginas repetidas ou promessas de posição."
+  ],
+  "sources": [
+    "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
+    "https://developers.google.com/search/docs/crawling-indexing/robots/intro",
+    "https://developers.google.com/search/docs/crawling-indexing/block-indexing",
+    "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls",
+    "https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview",
+    "https://developers.google.com/search/docs/appearance/structured-data/organization"
+  ]
+}

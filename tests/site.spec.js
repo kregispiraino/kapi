@@ -1,5 +1,24 @@
 const { test, expect } = require("@playwright/test");
 
+test("identidade e SEO descrevem a Kapi Digital e o serviço real", async ({ page, request }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/");
+  await expect(page).toHaveTitle("Criação de Sites Profissionais a partir de R$ 297 | Kapi Digital");
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "index, follow, max-image-preview:large");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://kapi.digital/");
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", /Desenvolvimento de sites profissionais.*custo-benefício/);
+  await expect(page.locator(".footer-contact address span").first()).toHaveText("Kapi Digital");
+  await expect(page.locator(".footer-contact address")).toContainText("CNPJ 63.704.682/0001-33");
+  const graph = JSON.parse(await page.locator('script[type="application/ld+json"]').textContent())["@graph"];
+  expect(graph.find(item => item["@type"] === "Organization").name).toBe("Kapi Digital");
+  expect(graph.find(item => item["@type"] === "WebSite").url).toBe("https://kapi.digital/");
+  expect(graph.find(item => item["@type"] === "Service").offers.priceSpecification.minPrice).toBe(297);
+  const image = new URL(await page.locator('meta[property="og:image"]').getAttribute("content"));
+  expect((await request.get(image.pathname)).status()).toBe(200);
+  const sitemap = await (await request.get("/sitemap.xml")).text();
+  expect(await page.evaluate(xml => new DOMParser().parseFromString(xml, "application/xml").querySelector("parsererror") === null, sitemap)).toBe(true);
+});
+
 for (const width of [320, 360, 390, 600, 767, 768, 1024, 1440]) {
   test(`layout e demonstração em ${width}px`, async ({ page }) => {
     const errors = [];
@@ -367,7 +386,7 @@ test("textos, âncoras e referências locais permanecem consistentes", async ({
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
   await expect(page.locator(".footer-brand p")).toHaveText(
-    "Sites, sistemas e soluções digitais.",
+    "Sites profissionais. Qualidade e ótimo custo-benefício.",
   );
   expect(
     await page.evaluate(() =>

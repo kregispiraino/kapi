@@ -1,7 +1,7 @@
 {
   "date": "2026-10-20",
   "status": "passed",
-  "automated_tests": 33,
+  "automated_tests": 37,
   "command": "npm test",
   "viewports": [
     320,
@@ -43,7 +43,10 @@
     "Imagens e links locais, IDs e âncoras",
     "Gzip, revalidação, fonte WOFF2 e respostas 404",
     "Range de vídeos e respostas 206/416",
-    "Sem rolagem horizontal nos tamanhos testados"
+    "Sem rolagem horizontal nos tamanhos testados",
+    "Acesso do servidor pela interface de rede e bloqueio de arquivos internos",
+    "Rodapé Kapi Digital, metadados SEO, canonical e JSON-LD consistentes",
+    "Robots permite rastreamento, sitemap XML público e demonstrações com noindex"
   ],
   "javascript_errors": [],
   "scroll_cpu_4x": {
@@ -56,6 +59,6 @@
     "maxFrameMs": 29,
     "method": "Chromium mobile 390 px, CPU 4x, 360 quadros de rolagem; execução isolada após a suíte. Verificação de opacidade separada para não interferir na medição."
   },
-  "header_update_validation": "Suíte completa com 33 testes passou, incluindo orçamento, encaixe do cabeçalho, retorno ao topo e direções das entradas. Verificação adicional em WebKit mobile: abertura, portfólio e mudança para movimento reduzido sem conteúdo oculto ou erros de JavaScript.",
+  "header_update_validation": "Suíte completa com 37 testes passou, incluindo servidor, SEO, cabeçalho responsivo e direções das entradas.",
   "limitations": "Testes locais em navegadores e emulação mobile; não representam todos os aparelhos físicos nem a hospedagem em produção."
 }

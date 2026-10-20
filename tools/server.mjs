@@ -28,6 +28,7 @@ const types = {
   ".woff2": "font/woff2",
   ".txt": "text/plain; charset=utf-8",
   ".json": "application/json",
+  ".xml": "application/xml; charset=utf-8",
 };
 const server = http.createServer(async (req, res) => {
   if (!["GET", "HEAD"].includes(req.method)) {
@@ -75,6 +76,10 @@ const server = http.createServer(async (req, res) => {
       ETag: etag,
       Vary: "Accept-Encoding",
     };
+    // As demonstrações do portfólio não são páginas comerciais da Kapi.
+    if (publicPath.startsWith("projetos/")) {
+      headers["X-Robots-Tag"] = "noindex, follow";
+    }
     if (req.headers["if-none-match"] === etag) {
       res.writeHead(304, headers);
       res.end();
