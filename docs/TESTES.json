@@ -1,7 +1,7 @@
 {
   "date": "2026-10-20",
   "status": "passed",
-  "automated_tests": 49,
+  "automated_tests": 51,
   "command": "npm test",
   "viewports": [
     320,
@@ -68,7 +68,7 @@
   "limitations": "Testes locais em navegadores e emulação mobile; não representam todos os aparelhos físicos nem a hospedagem em produção.",
   "tracking_validation": {
     "test_file": "tests/tracking.spec.js",
-    "automated_tests": 12,
+    "automated_tests": 14,
     "touch_browsers": [
       "Chromium (Pixel 7)",
       "WebKit (iPhone 13)"
@@ -87,5 +87,18 @@
       "method": "SDK oficial em navegador com domínio kapi.digital apontando para build local; requisições /tr interceptadas antes de envio para não gerar conversões fictícias."
     },
     "meta_events_manager_receipt": "Não verificado: requer sessão autenticada na conta Meta."
+  },
+  "footer_privacy_validation": {
+    "command": "npm test -- tests/tracking.spec.js",
+    "tests_passed": 14,
+    "viewports": [
+      390,
+      1440
+    ],
+    "checks": [
+      "Privacidade no rodapé reabre o card após aceitar ou recusar",
+      "Abrir o card não muda o consentimento nem gera eventos",
+      "Nova escolha fecha o card e devolve o foco ao link"
+    ]
   }
 }

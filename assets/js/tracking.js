@@ -6,6 +6,8 @@ export function initTracking({ onContact } = {}) {
   if (window[instanceKey]) return window[instanceKey];
   const settings = config.tracking;
   let consent = readConsent();
+  let noticeRequested = false;
+  let noticeTrigger;
   let initialized = false;
   let pageViewSent = false;
   let scriptRequested = false;
@@ -91,7 +93,7 @@ export function initTracking({ onContact } = {}) {
   function renderConsent() {
     const allowed = granted();
     const notice = document.querySelector("[data-consent-notice]");
-    if (notice) notice.hidden = consent !== null;
+    if (notice) notice.hidden = consent !== null && !noticeRequested;
     document.querySelectorAll("[data-consent-status]").forEach((element) => {
       element.textContent = allowed
         ? "Publicidade autorizada. Você pode revogar sua escolha a qualquer momento."
@@ -99,12 +101,13 @@ export function initTracking({ onContact } = {}) {
           ? "Publicidade recusada. O site e o WhatsApp continuam funcionando normalmente."
           : "Publicidade desativada. O Meta Pixel só será carregado se você aceitar.";
     });
-    document.querySelectorAll('[data-consent-action="grant"]').forEach((button) => { button.hidden = allowed; });
-    document.querySelectorAll('[data-consent-action="deny"]').forEach((button) => { button.hidden = allowed; });
+    document.querySelectorAll('[data-consent-controls] [data-consent-action="grant"]').forEach((button) => { button.hidden = allowed; });
+    document.querySelectorAll('[data-consent-controls] [data-consent-action="deny"]').forEach((button) => { button.hidden = allowed; });
     document.querySelectorAll('[data-consent-action="revoke"]').forEach((button) => { button.hidden = !allowed; });
   }
 
   function chooseConsent(marketing) {
+    noticeRequested = false;
     consent = { version: settings.consentVersion, marketing, updatedAt: Date.now() };
     try { localStorage.setItem(settings.consentKey, JSON.stringify(consent)); }
     catch { /* A escolha vale nesta página, sem impedir a navegação. */ }
@@ -141,10 +144,25 @@ export function initTracking({ onContact } = {}) {
         <button class="button" type="button" data-consent-action="revoke" hidden>Revogar consentimento</button>
       </div>`;
   });
+  document.querySelectorAll("[data-open-consent]").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const notice = document.querySelector("[data-consent-notice]");
+      if (!notice || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      noticeRequested = true;
+      noticeTrigger = link;
+      renderConsent();
+      notice.querySelector(".consent-title").focus({ preventScroll: true });
+    });
+  });
   document.addEventListener("click", (event) => {
     const button = event.target.closest?.("[data-consent-action]");
     if (!button || !event.isTrusted) return;
     chooseConsent(button.dataset.consentAction === "grant");
+    if (button.closest("[data-consent-notice]")) {
+      noticeTrigger?.focus({ preventScroll: true });
+      noticeTrigger = null;
+    }
   });
 
   function whatsappLink(element) {

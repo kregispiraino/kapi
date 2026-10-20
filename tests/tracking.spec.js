@@ -244,3 +244,33 @@ test("sem JavaScript, todos os links estáticos mantêm a URL comercial", async 
   }
   await context.close();
 });
+
+for (const width of [390, 1440]) {
+  test(`rodapé reabre card após permitir ou recusar em ${width}px`, async ({ page, context, baseURL }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await setup(context, baseURL, { marketing: true });
+    await open(page);
+    const link = page.locator('.footer-bottom [data-open-consent]');
+    const card = page.locator('[data-consent-notice]');
+    await expect(link).toHaveText('Privacidade');
+    await expect(card).toBeHidden();
+    await expect.poll(() => events(page, 'PageView')).toHaveLength(1);
+    await link.click();
+    await expect(card).toBeVisible();
+    await expect(card.locator('[data-consent-action="grant"]')).toBeVisible();
+    await expect(card.locator('[data-consent-action="deny"]')).toBeVisible();
+    expect(await page.evaluate(key => JSON.parse(localStorage.getItem(key)).marketing, KEY)).toBe(true);
+    expect(await events(page, 'PageView')).toHaveLength(1);
+    expect(await events(page, 'Contact')).toHaveLength(0);
+    await card.locator('[data-consent-action="deny"]').click();
+    await expect(card).toBeHidden();
+    await expect(link).toBeFocused();
+    expect(await page.evaluate(key => JSON.parse(localStorage.getItem(key)).marketing, KEY)).toBe(false);
+    await link.click();
+    await expect(card).toBeVisible();
+    await card.locator('[data-consent-action="grant"]').click();
+    await expect(card).toBeHidden();
+    expect(await page.evaluate(key => JSON.parse(localStorage.getItem(key)).marketing, KEY)).toBe(true);
+    expect(await events(page, 'PageView')).toHaveLength(1);
+  });
+}
