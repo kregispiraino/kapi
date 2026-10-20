@@ -1,0 +1,1397 @@
+<!doctype html>
+<html lang="pt-BR" data-entry-address="kapi.digital">
+  <head>
+    <script>
+      document.documentElement.classList.add("js-enhancing");
+      setTimeout(
+        () => document.documentElement.classList.remove("js-enhancing"),
+        3200,
+      );
+      if (
+        !matchMedia("(prefers-reduced-motion: reduce)").matches &&
+        performance.getEntriesByType("navigation")[0]?.type !== "back_forward"
+      ) {
+        document.documentElement.classList.add("entry-active");
+        setTimeout(
+          () => document.documentElement.classList.remove("entry-active"),
+          3200,
+        );
+      }
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Criação de sites a partir de R$ 297 | kapi.digital</title>
+    <meta
+      name="description"
+      content="Um site profissional para apresentar sua empresa e receber pedidos de orçamento. Projetos a partir de R$ 297. Conheça nosso portfólio e converse pelo WhatsApp."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#c4ff91" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta
+      property="og:title"
+      content="Seu site profissional. Sem gastar demais. | kapi.digital"
+    />
+    <meta
+      property="og:description"
+      content="Projetos a partir de R$ 297. Conheça nosso trabalho e peça seu orçamento pelo WhatsApp."
+    />
+    <link
+      rel="icon"
+      href="assets/img/favicon.png?v=4"
+      type="image/png"
+      sizes="64x64"
+    />
+    <link rel="icon" href="assets/img/favicon.svg?v=4" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="assets/img/hero-laminas.svg"
+      as="image"
+      type="image/svg+xml"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/inter-latin-variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="assets/build/site.css?v=7" />
+    <script src="assets/build/site.js?v=7" defer></script>
+  </head>
+  <body id="inicio">
+    <span class="top-sentinel" data-top-sentinel aria-hidden="true"></span>
+    <div class="entry-search" data-entry-search hidden>
+      <div class="entry-search-box" data-entry-box>
+        <span class="entry-search-address" aria-hidden="true">
+          <span data-entry-domain></span
+          ><span class="entry-search-path" data-entry-path></span
+          ><span class="entry-search-caret"></span>
+        </span>
+        <button
+          class="entry-search-button"
+          type="button"
+          data-entry-skip
+          aria-label="Pular abertura e acessar a página"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <circle
+              cx="10.5"
+              cy="10.5"
+              r="6.5"
+              stroke="currentColor"
+              stroke-width="1.6"
+            />
+            <path
+              d="m16 16 4.5 4.5"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
+    <header class="site-header">
+      <div class="nav-pill">
+        <a class="wordmark" href="#inicio" aria-label="kapi.digital, início"
+          >kapi<span class="wordmark-accent">.digital</span></a
+        >
+        <nav class="desktop-nav" aria-label="Navegação principal">
+          <a href="#inicio">Início</a><a href="#projetos">Portfólio</a
+          ><a href="#como-funciona">Como funciona</a
+          ><a href="#duvidas">Dúvidas</a>
+        </nav>
+        <a
+          class="button nav-cta"
+          data-whatsapp="cabecalho"
+          href="https://wa.me/message/3DBMZ5ZZHD4NC1"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><span>Falar no WhatsApp</span
+          ><svg
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            aria-hidden="true"
+          >
+            <path d="M5 19 19 5M5 5h14v14" /></svg></a
+        >
+        <div class="header-quote" hidden>
+          <span class="header-quote-price">A partir de<strong>R$ 297</strong></span>
+          <a
+            class="button header-quote-button"
+            data-whatsapp="orcamento-menu-mobile"
+            href="https://wa.me/message/3DBMZ5ZZHD4NC1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Orçamento<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14" /></svg></a>
+        </div>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          hidden
+        >
+          <span></span><span></span>
+        </button>
+      </div>
+      <nav
+        id="mobile-menu"
+        class="mobile-menu"
+        aria-label="Navegação no celular"
+        hidden
+      >
+        <a href="#inicio">Início</a><a href="#projetos">Portfólio</a
+        ><a href="#seu-site">Seu site</a
+        ><a href="#como-funciona">Como funciona</a><a href="#duvidas">Dúvidas</a
+        ><a
+          class="button mobile-menu-contact"
+          data-whatsapp="menu-mobile"
+          href="https://wa.me/message/3DBMZ5ZZHD4NC1"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Falar no WhatsApp<svg
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            aria-hidden="true"
+          >
+            <path d="M5 19 19 5M5 5h14v14" /></svg
+        ></a>
+      </nav>
+    </header>
+    <main id="conteudo" tabindex="-1">
+      <section
+        class="hero"
+        aria-labelledby="titulo-principal"
+        data-section="oferta-inicial"
+      >
+        <div class="hero-copy">
+          <h1 id="titulo-principal">
+            Seu site profissional.<br /><span class="hero-title-secondary">Sem gastar demais.</span>
+          </h1>
+        </div>
+        <div class="hero-offer">
+          <div class="hero-price">
+            <span>Projetos a partir de</span><strong>R$ 297</strong>
+          </div>
+          <a
+            class="hero-cta"
+            data-whatsapp="abertura"
+            href="https://wa.me/message/3DBMZ5ZZHD4NC1"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><span>Pedir orçamento no WhatsApp</span
+            ><svg
+              class="icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <path d="M5 19 19 5M5 5h14v14" /></svg
+          ></a>
+        </div>
+      </section>
+      <div class="hero-art hero-showcase">
+        <div
+          class="service-scene web-scene"
+          data-scene="websites"
+          role="group"
+          aria-label="Prévia responsiva de sites de mobiliário, alimentação e serviços"
+        >
+          <div class="web-workspace" data-device="desktop" data-palette="sage">
+            <div class="web-browser">
+              <div class="web-screen">
+                <div class="web-chrome">
+                  <span class="web-window-dots" aria-hidden="true"
+                    ><i></i><i></i><i></i></span
+                  ><span class="web-address"
+                    ><svg
+                      class="icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6Z" /></svg
+                    ><span data-web-address>forma.studio</span></span
+                  >
+                  <div class="web-showcase-controls">
+                    <span data-web-position aria-hidden="true">01 / 03</span
+                    ><button
+                      type="button"
+                      data-web-pause
+                      aria-label="Pausar apresentação"
+                      aria-pressed="false"
+                      disabled
+                    >
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 16 16"
+                        aria-hidden="true"
+                      >
+                        <path
+                          data-pause-icon
+                          d="M5 3v10M11 3v10"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                        />
+                      </svg></button
+                    ><button
+                      type="button"
+                      data-web-next
+                      aria-label="Próximo site"
+                      disabled
+                    >
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 16 16"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="m6 3 5 5-5 5"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="web-canvas">
+                  <div
+                    class="web-showcase"
+                    role="group"
+                    aria-label="Exemplos de sites"
+                    aria-roledescription="carrossel"
+                  >
+                    <div
+                      class="web-client-site"
+                      data-web-slide="furniture"
+                      data-palette="sage"
+                      data-domain="forma.studio"
+                      data-name="forma"
+                      data-category="Mobiliário"
+                      data-active="true"
+                      role="group"
+                      aria-roledescription="slide"
+                      aria-label="1 de 3: Mobiliário"
+                    >
+                      <div class="web-client-nav">
+                        <span class="web-client-brand"
+                          >forma<span aria-hidden="true">.</span></span
+                        ><span class="web-client-links"
+                          ><span>Coleção</span><span>Atelier</span
+                          ><span>Contato</span></span
+                        ><span class="web-client-menu" aria-hidden="true"
+                          ><i></i><i></i
+                        ></span>
+                      </div>
+                      <div class="web-client-hero">
+                        <div class="web-client-copy">
+                          <span class="web-client-eyebrow"
+                            >COLEÇÃO PERMANENTE — 2026</span
+                          >
+                          <h2>
+                            O essencial,<br />
+                            <em>bem desenhado.</em>
+                          </h2>
+                          <p class="web-client-description">
+                            Móveis autorais, materiais honestos e um olhar
+                            atento ao jeito de morar.
+                          </p>
+                          <span class="web-client-cta"
+                            >Conheça a coleção
+                            <svg
+                              class="icon"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              aria-hidden="true"
+                            >
+                              <path d="M5 19 19 5M5 5h14v14" /></svg></span
+                          ><span class="web-client-footnote"
+                            >Feito no Brasil. Pensado para durar.</span
+                          >
+                        </div>
+                        <div class="web-client-art">
+                          <div class="web-art-page">
+                            <img
+                              class="web-photo"
+                              src="assets/img/showcase/furniture-800.webp"
+                              srcset="
+                                assets/img/showcase/furniture-400.webp  400w,
+                                assets/img/showcase/furniture-640.webp  640w,
+                                assets/img/showcase/furniture-800.webp  800w,
+                                assets/img/showcase/furniture.webp     1000w
+                              "
+                              sizes="(max-width: 767px) 280px, 420px"
+                              alt="Poltrona clara de madeira em uma sala com luz natural."
+                              width="1000"
+                              height="563"
+                              decoding="async"
+                              fetchpriority="high"
+                            />
+                            <div class="web-art-caption">
+                              <span>01 — Espaços para viver</span
+                              ><span>Texturas naturais</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="web-client-bottom">
+                        <span>Design brasileiro, em cada detalhe.</span
+                        ><span
+                          ><span>Peças autorais</span
+                          ><span>Sob encomenda</span></span
+                        >
+                      </div>
+                    </div>
+                    <div
+                      class="web-client-site"
+                      data-web-slide="food"
+                      data-palette="clay"
+                      data-domain="mesa.cozinha"
+                      data-name="mesa"
+                      data-category="Alimentação"
+                      data-active="false"
+                      role="group"
+                      aria-roledescription="slide"
+                      aria-label="2 de 3: Alimentação"
+                      aria-hidden="true"
+                      inert
+                    >
+                      <div class="web-client-nav">
+                        <span class="web-client-brand"
+                          >mesa<span aria-hidden="true">.</span></span
+                        ><span class="web-client-links"
+                          ><span>Cozinha</span><span>Cardápio</span
+                          ><span>Reservas</span></span
+                        ><span class="web-client-menu" aria-hidden="true"
+                          ><i></i><i></i
+                        ></span>
+                      </div>
+                      <div class="web-client-hero">
+                        <div class="web-client-copy">
+                          <span class="web-client-eyebrow"
+                            >COZINHA DE ESTAÇÃO</span
+                          >
+                          <h2>
+                            Feito com tempo.<br />
+                            <em>Servido com afeto.</em>
+                          </h2>
+                          <p class="web-client-description">
+                            Ingredientes frescos, massas da casa e bons motivos
+                            para ficar à mesa.
+                          </p>
+                          <span class="web-client-cta"
+                            >Descubra o menu
+                            <svg
+                              class="icon"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              aria-hidden="true"
+                            >
+                              <path d="M5 19 19 5M5 5h14v14" /></svg></span
+                          ><span class="web-client-footnote"
+                            >Terça a domingo · 12h às 22h</span
+                          >
+                        </div>
+                        <div class="web-client-art">
+                          <div class="web-art-page">
+                            <img
+                              class="web-photo"
+                              src="assets/img/showcase/food-800.webp"
+                              srcset="
+                                assets/img/showcase/food-400.webp  400w,
+                                assets/img/showcase/food-640.webp  640w,
+                                assets/img/showcase/food-800.webp  800w,
+                                assets/img/showcase/food.webp     1000w
+                              "
+                              sizes="(max-width: 767px) 280px, 420px"
+                              alt="Massa com folhas verdes, tomates e queijo em um prato de cerâmica."
+                              width="1000"
+                              height="667"
+                              decoding="async"
+                              fetchpriority="low"
+                            />
+                            <div class="web-art-caption">
+                              <span>À mesa, hoje</span
+                              ><span>Massa da casa</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="web-client-bottom">
+                        <span>Da nossa cozinha para o seu encontro.</span
+                        ><span
+                          ><span>Menu da estação</span
+                          ><span>Reservas</span></span
+                        >
+                      </div>
+                    </div>
+                    <div
+                      class="web-client-site"
+                      data-web-slide="services"
+                      data-palette="slate"
+                      data-domain="elo.consultoria"
+                      data-name="elo"
+                      data-category="Serviços"
+                      data-active="false"
+                      role="group"
+                      aria-roledescription="slide"
+                      aria-label="3 de 3: Serviços"
+                      aria-hidden="true"
+                      inert
+                    >
+                      <div class="web-client-nav">
+                        <span class="web-client-brand"
+                          >elo<span aria-hidden="true">.</span></span
+                        ><span class="web-client-links"
+                          ><span>Soluções</span><span>Método</span
+                          ><span>Contato</span></span
+                        ><span class="web-client-menu" aria-hidden="true"
+                          ><i></i><i></i
+                        ></span>
+                      </div>
+                      <div class="web-client-hero">
+                        <div class="web-client-copy">
+                          <span class="web-client-eyebrow"
+                            >ESTRATÉGIA QUE VIRA PRÁTICA</span
+                          >
+                          <h2>
+                            Clareza para<br />
+                            <em>o próximo passo.</em>
+                          </h2>
+                          <p class="web-client-description">
+                            Organizamos prioridades e conectamos pessoas para
+                            fazer seu negócio avançar.
+                          </p>
+                          <span class="web-client-cta"
+                            >Conheça nosso trabalho
+                            <svg
+                              class="icon"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              aria-hidden="true"
+                            >
+                              <path d="M5 19 19 5M5 5h14v14" /></svg></span
+                          ><span class="web-client-footnote"
+                            >Estratégia próxima. Execução presente.</span
+                          >
+                        </div>
+                        <div class="web-client-art">
+                          <div class="web-art-page">
+                            <img
+                              class="web-photo"
+                              src="assets/img/showcase/services-800.webp"
+                              srcset="
+                                assets/img/showcase/services-400.webp  400w,
+                                assets/img/showcase/services-640.webp  640w,
+                                assets/img/showcase/services-800.webp  800w,
+                                assets/img/showcase/services.webp     1000w
+                              "
+                              sizes="(max-width: 767px) 280px, 420px"
+                              alt="Equipe em reunião de trabalho, com cadernos, gráficos e notebook."
+                              width="1000"
+                              height="667"
+                              decoding="async"
+                              fetchpriority="low"
+                            />
+                            <div class="web-art-caption">
+                              <span>Um olhar sobre o todo</span
+                              ><span>Pessoas &amp; processos</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="web-client-bottom">
+                        <span>O próximo capítulo do seu negócio.</span
+                        ><span
+                          ><span>01 Diagnóstico</span><span>02 Direção</span
+                          ><span>03 Ação</span></span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="sr-only" role="status" data-web-announcement></p>
+          <div
+            class="web-device-controls"
+            role="group"
+            aria-label="Visualização responsiva"
+          >
+            <button
+              type="button"
+              data-device-button="desktop"
+              aria-pressed="true"
+              disabled
+            >
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.35"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="3" y="4" width="18" height="12" rx="2" />
+                <path d="M12 16v4m-4 0h8" /></svg
+              ><span>Desktop</span>
+            </button>
+            <button
+              type="button"
+              data-device-button="mobile"
+              aria-pressed="false"
+              disabled
+            >
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.35"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="6" y="2.5" width="12" height="19" rx="2.5" />
+                <path d="M10 5h4m-3 14h2" /></svg
+              ><span>Mobile</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="intro-strip section-pad">
+        <p>
+          Apresente seus serviços, mostre seu trabalho e facilite o pedido de
+          orçamento. Um site que funciona bem no celular e leva seu cliente até
+          o WhatsApp.
+        </p>
+        <a class="text-link" href="#projetos"
+          >Conheça nosso trabalho
+          <svg
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            aria-hidden="true"
+          >
+            <path d="M5 19 19 5M5 5h14v14" /></svg
+        ></a>
+      </div>
+      <!-- Histórico fornecido pelo proprietário. Validar atribuição antes de publicar. Ver docs/PUBLICACAO.md. -->
+      <div class="trust-strip section-pad" aria-label="Sobre a kapi.digital">
+        <div>
+          <strong>Desde 2019</strong
+          ><span>desenvolvendo soluções digitais</span>
+        </div>
+        <div><strong>Mais de 1.000</strong><span>clientes atendidos</span></div>
+        <div>
+          <strong>Conversa direta</strong><span>do orçamento à entrega</span>
+        </div>
+      </div>
+      <section
+        class="portfolio section-pad section-space"
+        id="projetos"
+        aria-labelledby="titulo-projetos"
+        data-section="portfolio"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">NOSSO TRABALHO</p>
+            <h2 id="titulo-projetos">
+              Conheça antes<br />
+              de contratar.
+            </h2>
+          </div>
+          <p class="section-intro">
+            Negócios diferentes, cada um com seu jeito de se apresentar. Veja
+            alguns dos nossos projetos.
+          </p>
+        </div>
+        <div class="portfolio-grid">
+          <article class="project">
+            <a
+              class="project-cover"
+              href="https://askora.com.br/"
+              data-preview="askora"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Ver projeto Askora"
+              ><img
+                src="assets/img/portfolio-askora-800.webp"
+                srcset="
+                  assets/img/portfolio-askora-400.webp  400w,
+                  assets/img/portfolio-askora-640.webp  640w,
+                  assets/img/portfolio-askora-800.webp  800w,
+                  assets/img/portfolio-askora.webp     1280w
+                "
+                sizes="(max-width: 599px) calc(100vw - 48px), (max-width: 999px) calc((100vw - 88px) / 2), calc((100vw - 200px) / 4)"
+                alt="Página inicial do site Askora"
+                width="1280"
+                height="800"
+                loading="lazy"
+                decoding="async" /><span class="cover-action"
+                >Ver projeto
+                <svg
+                  class="icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <path d="M5 19 19 5M5 5h14v14" /></svg></span
+            ></a>
+            <div class="project-info">
+              <div>
+                <h3>Askora</h3>
+                <p>Software de gestão comercial</p>
+              </div>
+              <a
+                class="project-arrow"
+                data-preview="askora"
+                href="https://askora.com.br/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Abrir projeto Askora"
+                ><svg
+                  class="icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <path d="M5 19 19 5M5 5h14v14" /></svg
+              ></a>
+            </div>
+            <p class="project-description">
+              Site de apresentação de uma plataforma de vendas, metas e
+              comissões. Explica o produto e facilita o contato com a equipe.
+            </p>
+          </article>
+          <article class="project">
+            <a
+              class="project-cover"
+              href="projetos/osler/website/index.html"
+              data-preview="osler"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Ver projeto Osler Medicina"
+              ><img
+                src="assets/img/portfolio-osler-800.webp"
+                srcset="
+                  assets/img/portfolio-osler-400.webp  400w,
+                  assets/img/portfolio-osler-640.webp  640w,
+                  assets/img/portfolio-osler-800.webp  800w,
+                  assets/img/portfolio-osler.webp     1280w
+                "
+                sizes="(max-width: 599px) calc(100vw - 48px), (max-width: 999px) calc((100vw - 88px) / 2), calc((100vw - 200px) / 4)"
+                alt="Página inicial do site Osler Medicina"
+                width="1280"
+                height="800"
+                loading="lazy"
+                decoding="async" /><span class="cover-action"
+                >Ver projeto
+                <svg
+                  class="icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <path d="M5 19 19 5M5 5h14v14" /></svg></span
+            ></a>
+            <div class="project-info">
+              <div>
+                <h3>Osler Medicina</h3>
+                <p>Educação médica</p>
+              </div>
+              <a
+                class="project-arrow"
+                data-preview="osler"
+                href="projetos/osler/website/index.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Abrir projeto Osler Medicina"
+                ><svg
+                  class="icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <path d="M5 19 19 5M5 5h14v14" /></svg
+              ></a>
+            </div>
+            <p class="project-description">
+              Site que apresenta a proposta de ensino, os recursos de estudo e
+              as possibilidades de formação para alunos de medicina.
+            </p>
+          </article>
+          <article class="project">
+            <a
+              class="project-cover"
+              href="projetos/aml/website/index.html"
+              data-preview="aml"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Ver projeto AML Reputacional"
+              ><img
+                src="assets/img/portfolio-aml-800.webp"
+                srcset="
+                  assets/img/portfolio-aml-400.webp  400w,
+                  assets/img/portfolio-aml-640.webp  640w,
+                  assets/img/portfolio-aml-800.webp  800w,
+                  assets/img/portfolio-aml.webp     1280w
+                "
+                sizes="(max-width: 599px) calc(100vw - 48px), (max-width: 999px) calc((100vw - 88px) / 2), calc((100vw - 200px) / 4)"
+                alt="Página inicial do site AML Reputacional"
+                width="1280"
+                height="800"
+                loading="lazy"
+                decoding="async" /><span class="cover-action"
+                >Ver projeto
+                <svg
+                  class="icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <path d="M5 19 19 5M5 5h14v14" /></svg></span
+            ></a>
+            <div class="project-info">
+              <div>
+                <h3>AML Reputacional</h3>
+                <p>Serviços empresariais</p>
+              </div>
+              <a
+                class="project-arrow"
+                data-preview="aml"
+                href="projetos/aml/website/index.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Abrir projeto AML Reputacional"
+                ><svg
+                  class="icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <path d="M5 19 19 5M5 5h14v14" /></svg
+              ></a>
+            </div>
+            <p class="project-description">
+              Site institucional que organiza as soluções da empresa e direciona
+              quem precisa de atendimento para a equipe comercial.
+            </p>
+          </article>
+          <article class="project">
+            <a
+              class="project-cover"
+              href="projetos/gear-seo/website/index.html"
+              data-preview="gear"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Ver projeto Gear SEO"
+              ><img
+                src="assets/img/portfolio-gear-seo-800.webp"
+                srcset="
+                  assets/img/portfolio-gear-seo-400.webp  400w,
+                  assets/img/portfolio-gear-seo-640.webp  640w,
+                  assets/img/portfolio-gear-seo-800.webp  800w,
+                  assets/img/portfolio-gear-seo.webp     1280w
+                "
+                sizes="(max-width: 599px) calc(100vw - 48px), (max-width: 999px) calc((100vw - 88px) / 2), calc((100vw - 200px) / 4)"
+                alt="Página inicial do site Gear SEO"
+                width="1280"
+                height="800"
+                loading="lazy"
+                decoding="async" /><span class="cover-action"
+                >Ver projeto
+                <svg
+                  class="icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <path d="M5 19 19 5M5 5h14v14" /></svg></span
+            ></a>
+            <div class="project-info">
+              <div>
+                <h3>Gear SEO</h3>
+                <p>Marketing e buscas</p>
+              </div>
+              <a
+                class="project-arrow"
+                data-preview="gear"
+                href="projetos/gear-seo/website/index.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Abrir projeto Gear SEO"
+                ><svg
+                  class="icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <path d="M5 19 19 5M5 5h14v14" /></svg
+              ></a>
+            </div>
+            <p class="project-description">
+              Site de uma agência de SEO. Apresenta serviços, explica a forma de
+              trabalhar e abre caminho para uma conversa comercial.
+            </p>
+          </article>
+        </div>
+        <div class="section-bottom">
+          <p>
+            Os projetos apresentados têm diferentes tamanhos, recursos e
+            investimentos.
+          </p>
+          <a
+            class="text-link"
+            data-whatsapp="apos-portfolio"
+            href="https://wa.me/message/3DBMZ5ZZHD4NC1"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><span>Vamos falar do seu site</span
+            ><svg
+              class="icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <path d="M5 19 19 5M5 5h14v14" /></svg
+          ></a>
+        </div>
+      </section>
+      <section
+        class="benefits section-pad section-space"
+        id="seu-site"
+        aria-labelledby="titulo-beneficios"
+        data-section="beneficios"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">UM SITE ÚTIL PARA O SEU NEGÓCIO</p>
+            <h2 id="titulo-beneficios">
+              Não basta<br />
+              ser bonito.
+            </h2>
+          </div>
+          <p class="section-intro">
+            Seu cliente precisa entender o que você faz, confiar no seu trabalho
+            e encontrar um jeito fácil de falar com você.
+          </p>
+        </div>
+        <div class="benefits-grid">
+          <article>
+            <span class="item-index">01</span>
+            <h3>Seu trabalho bem apresentado</h3>
+            <p>
+              Serviços, fotos e informações organizados para mostrar o que você
+              oferece e por que vale a pena entrar em contato.
+            </p>
+          </article>
+          <article>
+            <span class="item-index">02</span>
+            <h3>Boa experiência no celular</h3>
+            <p>
+              Páginas leves, textos fáceis de ler e botões simples de usar. O
+              site se adapta ao celular e ao computador.
+            </p>
+          </article>
+          <article>
+            <span class="item-index">03</span>
+            <h3>Um caminho fácil até o orçamento</h3>
+            <p>
+              Botões de contato em lugares visíveis levam o visitante ao seu
+              WhatsApp. Sem fazer seu cliente procurar como falar com você.
+            </p>
+          </article>
+          <article>
+            <span class="item-index">04</span>
+            <h3>Uma base preparada para o Google</h3>
+            <p>
+              Organizamos os títulos, as descrições e as informações da empresa
+              para ajudar o Google a entender o conteúdo do site.
+            </p>
+          </article>
+        </div>
+      </section>
+      <section
+        class="investment section-pad section-space"
+        id="investimento"
+        aria-labelledby="titulo-investimento"
+        data-section="preco-e-condicoes"
+      >
+        <div class="investment-copy">
+          <p class="eyebrow">SEM CONTRATAR MAIS DO QUE PRECISA</p>
+          <h2 id="titulo-investimento">
+            Comece com o que<br />
+            faz sentido agora.
+          </h2>
+          <p>
+            Para apresentar sua empresa e receber contatos, nem sempre é preciso
+            um site grande. Vamos definir as páginas e os recursos que você
+            realmente vai usar.
+          </p>
+          <ul class="proposal-list">
+            <li>O que será feito e o que está incluído</li>
+            <li>O valor do projeto e o prazo de entrega</li>
+            <li>Os custos para manter o site no ar</li>
+          </ul>
+        </div>
+        <aside class="investment-offer" aria-label="Investimento inicial">
+          <p class="offer-label">Criação de sites a partir de</p>
+          <p class="offer-value">R$ 297</p>
+          <a
+            class="button"
+            data-whatsapp="investimento"
+            href="https://wa.me/message/3DBMZ5ZZHD4NC1"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><span>Pedir orçamento</span
+            ><svg
+              class="icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <path d="M5 19 19 5M5 5h14v14" /></svg
+          ></a>
+          <p class="offer-footnote">
+            Valor da criação, não uma mensalidade. Domínio, hospedagem e
+            manutenção ficam detalhados na proposta.
+          </p>
+        </aside>
+      </section>
+      <section
+        class="process section-pad section-space"
+        id="como-funciona"
+        aria-labelledby="titulo-processo"
+        data-section="processo"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">DO PRIMEIRO CONTATO AO SITE NO AR</p>
+            <h2 id="titulo-processo">
+              Você fala do negócio.<br />
+              A gente cuida do site.
+            </h2>
+          </div>
+          <p class="section-intro">
+            Não precisa entender de tecnologia. Você acompanha o projeto e sabe
+            o que está sendo feito.
+          </p>
+        </div>
+        <ol class="process-grid">
+          <li>
+            <span class="step-number">01</span>
+            <h3>Conte o que precisa</h3>
+            <p>
+              Conversamos pelo WhatsApp sobre sua empresa, seus serviços e o que
+              você quer mostrar no site.
+            </p>
+          </li>
+          <li>
+            <span class="step-number">02</span>
+            <h3>Receba a proposta</h3>
+            <p>
+              Você conhece o que será entregue, o preço e o prazo. O
+              desenvolvimento começa depois da contratação.
+            </p>
+          </li>
+          <li>
+            <span class="step-number">03</span>
+            <h3>Acompanhe a criação</h3>
+            <p>
+              Organizamos o site, apresentamos para sua aprovação e cuidamos da
+              publicação conforme o combinado.
+            </p>
+          </li>
+        </ol>
+      </section>
+      <section
+        class="faq-section section-pad section-space"
+        id="duvidas"
+        aria-labelledby="titulo-duvidas"
+        data-section="duvidas"
+      >
+        <div class="faq-intro">
+          <p class="eyebrow">PARA DECIDIR COM TRANQUILIDADE</p>
+          <h2 id="titulo-duvidas">Antes de contratar.</h2>
+          <p>
+            Sua empresa pronta para ser encontrada, transmitir confiança e
+            receber mais pedidos de orçamento.
+          </p>
+          <a
+            class="text-link"
+            data-whatsapp="duvidas"
+            href="https://wa.me/message/3DBMZ5ZZHD4NC1"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><span>Quero colocar minha empresa em destaque</span
+            ><svg
+              class="icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <path d="M5 19 19 5M5 5h14v14" /></svg
+          ></a>
+        </div>
+        <div class="faq-list">
+          <details data-faq="google">
+            <summary>
+              Como meu site ajuda minha empresa a aparecer no Google?<span
+                class="faq-symbol"
+                aria-hidden="true"
+              ></span>
+            </summary>
+            <p>
+              Seu próximo cliente pode estar buscando exatamente o que você
+              vende. Criamos um site com seus serviços e informações
+              organizados para o Google entender sua empresa e o que ela
+              oferece. É a base para disputar espaço nas buscas e ser
+              encontrado por quem já tem interesse no seu negócio.
+            </p>
+          </details>
+          <details data-faq="seo">
+            <summary>
+              O site já vem preparado para melhorar meu posicionamento?<span
+                class="faq-symbol"
+                aria-hidden="true"
+              ></span>
+            </summary>
+            <p>
+              Sim. Seu site nasce com uma base de SEO: títulos, descrições,
+              conteúdo organizado e boa experiência no celular. Tudo pensado
+              para facilitar a leitura pelo Google e apoiar seu posicionamento
+              nas buscas. Mais do que um cartão de visitas: uma presença
+              digital preparada para crescer.
+            </p>
+          </details>
+          <details data-faq="inteligencia-artificial">
+            <summary>
+              Minha empresa também pode ser encontrada por IAs?<span
+                class="faq-symbol"
+                aria-hidden="true"
+              ></span>
+            </summary>
+            <p>
+              Um site coloca as informações da sua empresa na web, onde
+              buscadores e ferramentas de IA podem consultá-las. Organizamos o
+              que você faz, seus serviços e como entrar em contato para
+              facilitar essa descoberta. Sua marca preparada para as novas
+              formas de buscar e escolher uma empresa.
+            </p>
+          </details>
+          <details data-faq="conversao">
+            <summary>
+              Como o site transforma interesse em pedidos de orçamento?<span
+                class="faq-symbol"
+                aria-hidden="true"
+              ></span>
+            </summary>
+            <p>
+              Seu site apresenta os serviços, valoriza seu trabalho e leva o
+              visitante direto ao WhatsApp. Cada seção ajuda o cliente a
+              entender sua oferta e dar o próximo passo. Use o link nos
+              anúncios, nas redes sociais e nas conversas para levar as
+              pessoas a uma página feita para gerar contatos.
+            </p>
+          </details>
+          <details data-faq="preco">
+            <summary>
+              Dá para começar com um site profissional a partir de R$ 297?<span
+                class="faq-symbol"
+                aria-hidden="true"
+              ></span>
+            </summary>
+            <p>
+              Sim. Temos projetos a partir de R$ 297 para tirar sua empresa do
+              improviso e apresentar seu negócio de forma profissional. Esse é
+              o investimento inicial de criação, não uma mensalidade. Chame no
+              WhatsApp e receba uma proposta com o que seu projeto inclui e os
+              custos para mantê-lo no ar.
+            </p>
+          </details>
+          <details data-faq="instagram">
+            <summary>
+              Já tenho Instagram. Por que investir em um site?<span
+                class="faq-symbol"
+                aria-hidden="true"
+              ></span>
+            </summary>
+            <p>
+              Quem conhece sua empresa pelas redes precisa de um lugar para
+              conferir seus serviços e decidir entrar em contato. Seu site
+              reúne tudo em um endereço próprio, reforça sua credibilidade e
+              abre uma nova frente de presença nas buscas. Coloque o link na
+              bio e faça seu perfil trabalhar junto com uma apresentação
+              profissional.
+            </p>
+          </details>
+          <details data-faq="materiais">
+            <summary>
+              Preciso ter tudo pronto para começar?<span
+                class="faq-symbol"
+                aria-hidden="true"
+              ></span>
+            </summary>
+            <p>
+              Não precisa esperar sua empresa estar perfeita para dar o
+              próximo passo. Conte o que você faz e envie o que já tem: logo,
+              fotos, serviços e referências. A partir disso, definimos o
+              caminho para colocar seu site no ar e o que será necessário para
+              apresentar sua empresa com força.
+            </p>
+          </details>
+          <details data-faq="site-existente">
+            <summary>
+              Meu site atual não valoriza minha empresa. Vocês resolvem?<span
+                class="faq-symbol"
+                aria-hidden="true"
+              ></span>
+            </summary>
+            <p>
+              Sim. Avaliamos seu site para identificar o que pode melhorar na
+              apresentação, na navegação pelo celular e no caminho até o
+              contato. A proposta é transformar uma presença esquecida em uma
+              vitrine que mostre o valor do seu negócio e convide o cliente a
+              pedir um orçamento.
+            </p>
+          </details>
+        </div>
+      </section>
+      <section
+        class="closing section-pad"
+        id="orcamento"
+        aria-labelledby="titulo-final"
+        data-section="cta-final"
+      >
+        <div>
+          <p class="eyebrow">PROJETOS A PARTIR DE R$ 297</p>
+          <h2 id="titulo-final">
+            Vamos tirar seu<br />
+            site do papel?
+          </h2>
+        </div>
+        <div class="closing-action">
+          <p>
+            Conte o que sua empresa faz e se já tem um site. Vamos entender o
+            que você precisa e preparar o orçamento.
+          </p>
+          <a
+            class="button dark-button"
+            data-whatsapp="fechamento"
+            href="https://wa.me/message/3DBMZ5ZZHD4NC1"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><span>Pedir orçamento no WhatsApp</span
+            ><svg
+              class="icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <path d="M5 19 19 5M5 5h14v14" /></svg></a
+          ><span class="closing-note"
+            >Você decide depois de conhecer a proposta.</span
+          >
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer section-pad" aria-label="Rodapé institucional">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a class="wordmark" href="#inicio"
+            >kapi<span class="wordmark-accent">.digital</span></a
+          >
+          <p>
+            Sites, sistemas<br />
+            e soluções digitais.
+          </p>
+        </div>
+        <nav class="footer-column" aria-labelledby="footer-nav">
+          <h2 id="footer-nav">Navegue</h2>
+          <a href="#inicio">Início</a><a href="#projetos">Portfólio</a
+          ><a href="#seu-site">Seu site</a
+          ><a href="#como-funciona">Como funciona</a>
+        </nav>
+        <nav class="footer-column" aria-labelledby="footer-company">
+          <h2 id="footer-company">Institucional</h2>
+          <a href="#investimento">Preços e condições</a
+          ><a href="#duvidas">Dúvidas frequentes</a
+          ><a href="privacidade.html" data-privacy>Privacidade</a>
+        </nav>
+        <div class="footer-contact">
+          <h2>Vamos conversar?</h2>
+          <p>
+            Conte o que sua empresa precisa.<br />O atendimento é pelo WhatsApp.
+          </p>
+          <a
+            class="text-link"
+            data-whatsapp="rodape"
+            href="https://wa.me/message/3DBMZ5ZZHD4NC1"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><span>Conversar com a Kapi</span
+            ><svg
+              class="icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <path d="M5 19 19 5M5 5h14v14" /></svg
+          ></a>
+          <address>
+            <span>63.704.682 KAUE REGIS PIRAINO</span
+            ><span>CNPJ 63.704.682/0001-33</span><span>São Paulo, SP</span>
+          </address>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          © <span data-year>2026</span> kapi.digital. Todos os direitos
+          reservados.
+        </p>
+        <span>Português (BR)</span><a href="#inicio">Voltar ao início ↑</a>
+      </div>
+    </footer>
+    <div class="mobile-cta" aria-label="Orçamento rápido">
+      <p>A partir de<strong>R$ 297</strong></p>
+      <a
+        class="button"
+        data-whatsapp="barra-mobile"
+        href="https://wa.me/message/3DBMZ5ZZHD4NC1"
+        target="_blank"
+        rel="noopener noreferrer"
+        ><span>Pedir orçamento</span
+        ><svg
+          class="icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          aria-hidden="true"
+        >
+          <path d="M5 19 19 5M5 5h14v14" /></svg
+      ></a>
+    </div>
+
+    <dialog
+      class="privacy-dialog"
+      id="privacy-dialog"
+      aria-labelledby="privacy-title"
+    >
+      <div class="dialog-heading">
+        <h2 id="privacy-title">Privacidade</h2>
+        <button
+          class="icon-button"
+          data-close-dialog
+          type="button"
+          aria-label="Fechar privacidade"
+        >
+          ×
+        </button>
+      </div>
+      <p>
+        Esta página apresenta os serviços da kapi.digital, identificada pelo
+        nome empresarial 63.704.682 KAUE REGIS PIRAINO e pelo CNPJ
+        63.704.682/0001-33.
+      </p>
+      <p>
+        Esta versão não tem formulário nem envia dados para ferramentas de
+        análise. Os eventos de navegação ficam apenas na memória da página e são
+        descartados ao fechá-la.
+      </p>
+      <p>
+        A fonte e as imagens de apresentação são carregadas deste próprio site.
+        Os projetos do portfólio abrem em nova aba e podem carregar seus
+        próprios serviços e tecnologias.
+      </p>
+      <p>
+        Ao acessar o WhatsApp ou um projeto, você utiliza um serviço externo. As
+        informações compartilhadas seguem também as condições desse serviço.
+      </p>
+      <p>
+        Para dúvidas sobre os dados compartilhados no atendimento, entre em
+        contato pelo WhatsApp indicado nesta página.
+      </p>
+      <a class="text-link" href="privacidade.html"
+        >Ler em uma página separada
+        <svg
+          class="icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          aria-hidden="true"
+        >
+          <path d="M5 19 19 5M5 5h14v14" /></svg
+      ></a>
+    </dialog>
+  </body>
+</html>

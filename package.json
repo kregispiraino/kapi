@@ -1,0 +1,21 @@
+{
+  "name": "kapi-digital-landing",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Site Kapi Digital: HTML est\u00e1tico e anima\u00e7\u00f5es nativas, sem depend\u00eancias de runtime.",
+  "scripts": {
+    "dev": "node tools/dev.mjs",
+    "start": "node tools/server.mjs",
+    "build": "node tools/build.mjs",
+    "test": "playwright test",
+    "check": "npm test",
+    "pretest": "npm run build"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "esbuild": "^0.28.2"
+  }
+}

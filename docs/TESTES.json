@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-20",
+  "status": "passed",
+  "automated_tests": 33,
+  "command": "npm test",
+  "viewports": [
+    320,
+    360,
+    390,
+    600,
+    767,
+    768,
+    1024,
+    1440
+  ],
+  "browsers": {
+    "chromium": "suíte automatizada e verificação com toque",
+    "webkit": "verificação mobile com toque: abertura, menu, dispositivos, carrossel e rolagem"
+  },
+  "pages": [
+    "index.html",
+    "privacidade.html",
+    "projetos/osler/website/index.html",
+    "projetos/aml/website/index.html",
+    "projetos/gear-seo/website/index.html"
+  ],
+  "checks": [
+    "Abertura com e sem #inicio, recarga e botão de pular",
+    "Abertura de aproximadamente 1,1 segundo e subtítulo com opacidade de 68%",
+    "Entrada direcional em 390 e 1440 px: menu de cima, título da esquerda, oferta da direita, ilustração de baixo",
+    "Rolagem para baixo e para cima em 390 e 1440 px: opacidade só aumenta durante a entrada, sem piscadas, repetição ou blocos presos no estado oculto",
+    "Âncora #inicio preserva o cabeçalho completo",
+    "Menu mobile e WhatsApp dentro do menu",
+    "Barra de orçamento desaparece ao rolar e retorna ao topo",
+    "Cabeçalho acompanha a rolagem e recebe Orçamento + R$ 297 quando a barra inferior sai",
+    "Cabeçalho mantém 58 px sem sobreposição em 320, 360, 390, 600 e 767 px; orçamento compacto oculto no desktop",
+    "Logo mantém largura, altura e posição horizontal ao entrar o orçamento; preço à esquerda do botão, com 7 testes do cabeçalho e retorno ao topo aprovados após o ajuste",
+    "Quatro projetos no desktop, duas ou uma coluna conforme a largura",
+    "Desktop/Mobile sem mudar a altura do palco, incluindo cliques rápidos",
+    "Carrossel pausa fora da tela; movimento reduzido preserva controles manuais",
+    "FAQ, modal de privacidade e restauração de foco",
+    "Conteúdo sem JavaScript e recuperação quando o script principal falha",
+    "Imagens e links locais, IDs e âncoras",
+    "Gzip, revalidação, fonte WOFF2 e respostas 404",
+    "Range de vídeos e respostas 206/416",
+    "Sem rolagem horizontal nos tamanhos testados"
+  ],
+  "javascript_errors": [],
+  "scroll_cpu_4x": {
+    "longTasks": [],
+    "maxTask": 0,
+    "activeAnimations": 0,
+    "overflow": false,
+    "consoleErrors": [],
+    "framesOver50ms": 0,
+    "maxFrameMs": 29,
+    "method": "Chromium mobile 390 px, CPU 4x, 360 quadros de rolagem; execução isolada após a suíte. Verificação de opacidade separada para não interferir na medição."
+  },
+  "header_update_validation": "Suíte completa com 33 testes passou, incluindo orçamento, encaixe do cabeçalho, retorno ao topo e direções das entradas. Verificação adicional em WebKit mobile: abertura, portfólio e mudança para movimento reduzido sem conteúdo oculto ou erros de JavaScript.",
+  "limitations": "Testes locais em navegadores e emulação mobile; não representam todos os aparelhos físicos nem a hospedagem em produção."
+}

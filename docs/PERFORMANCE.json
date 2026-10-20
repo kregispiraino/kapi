@@ -1,0 +1,209 @@
+{
+  "date": "2026-10-20",
+  "tool": "Lighthouse 13.5.0",
+  "url": "http://127.0.0.1:5500/index.html",
+  "conditions": {
+    "form_factor": "mobile",
+    "throttling_method": "simulate",
+    "throttling": {
+      "rttMs": 150,
+      "throughputKbps": 1638.4,
+      "requestLatencyMs": 562.5,
+      "downloadThroughputKbps": 1474.5600000000002,
+      "uploadThroughputKbps": 675,
+      "cpuSlowdownMultiplier": 4
+    }
+  },
+  "before": {
+    "scores": {
+      "performance": 77,
+      "accessibility": 100,
+      "best-practices": 100
+    },
+    "metrics": {
+      "first-contentful-paint": {
+        "value": 2754.1023999999998,
+        "unit": "millisecond",
+        "display": "2.8 s"
+      },
+      "largest-contentful-paint": {
+        "value": 3504.1023999999998,
+        "unit": "millisecond",
+        "display": "3.5 s"
+      },
+      "speed-index": {
+        "value": 13281.391479998118,
+        "unit": "millisecond",
+        "display": "13.3 s"
+      },
+      "total-blocking-time": {
+        "value": 0,
+        "unit": "millisecond",
+        "display": "0 ms"
+      },
+      "cumulative-layout-shift": {
+        "value": 3.87014172329986e-06,
+        "unit": "unitless",
+        "display": "0"
+      }
+    },
+    "resources": [
+      {
+        "resourceType": "total",
+        "label": "Total",
+        "requestCount": 25,
+        "transferSize": 578482
+      },
+      {
+        "resourceType": "image",
+        "label": "Image",
+        "requestCount": 8,
+        "transferSize": 424131
+      },
+      {
+        "resourceType": "font",
+        "label": "Font",
+        "requestCount": 1,
+        "transferSize": 48464
+      },
+      {
+        "resourceType": "stylesheet",
+        "label": "Stylesheet",
+        "requestCount": 5,
+        "transferSize": 42336
+      },
+      {
+        "resourceType": "document",
+        "label": "Document",
+        "requestCount": 1,
+        "transferSize": 32633
+      },
+      {
+        "resourceType": "script",
+        "label": "Script",
+        "requestCount": 9,
+        "transferSize": 28916
+      },
+      {
+        "resourceType": "other",
+        "label": "Other",
+        "requestCount": 1,
+        "transferSize": 2002
+      },
+      {
+        "resourceType": "media",
+        "label": "Media",
+        "requestCount": 0,
+        "transferSize": 0
+      },
+      {
+        "resourceType": "third-party",
+        "label": "Third-party",
+        "requestCount": 2,
+        "transferSize": 49817
+      }
+    ]
+  },
+  "after": {
+    "scores": {
+      "performance": 98,
+      "accessibility": 100,
+      "best-practices": 100
+    },
+    "metrics": {
+      "first-contentful-paint": {
+        "value": 1216.8474999999999,
+        "unit": "millisecond",
+        "display": "1.2 s"
+      },
+      "largest-contentful-paint": {
+        "value": 2341.8475,
+        "unit": "millisecond",
+        "display": "2.3 s"
+      },
+      "speed-index": {
+        "value": 2725.200638001129,
+        "unit": "millisecond",
+        "display": "2.7 s"
+      },
+      "total-blocking-time": {
+        "value": 0,
+        "unit": "millisecond",
+        "display": "0 ms"
+      },
+      "cumulative-layout-shift": {
+        "value": 0.00019767463401236025,
+        "unit": "unitless",
+        "display": "0"
+      }
+    },
+    "resources": [
+      {
+        "resourceType": "total",
+        "label": "Total",
+        "requestCount": 13,
+        "transferSize": 317754
+      },
+      {
+        "resourceType": "image",
+        "label": "Image",
+        "requestCount": 8,
+        "transferSize": 166804
+      },
+      {
+        "resourceType": "document",
+        "label": "Document",
+        "requestCount": 1,
+        "transferSize": 54139
+      },
+      {
+        "resourceType": "font",
+        "label": "Font",
+        "requestCount": 1,
+        "transferSize": 48714
+      },
+      {
+        "resourceType": "stylesheet",
+        "label": "Stylesheet",
+        "requestCount": 1,
+        "transferSize": 33314
+      },
+      {
+        "resourceType": "script",
+        "label": "Script",
+        "requestCount": 1,
+        "transferSize": 12781
+      },
+      {
+        "resourceType": "other",
+        "label": "Other",
+        "requestCount": 1,
+        "transferSize": 2002
+      },
+      {
+        "resourceType": "media",
+        "label": "Media",
+        "requestCount": 0,
+        "transferSize": 0
+      },
+      {
+        "resourceType": "third-party",
+        "label": "Third-party",
+        "requestCount": 0,
+        "transferSize": 0
+      }
+    ]
+  },
+  "scroll_cpu_4x": {
+    "longTasks": [],
+    "maxTask": 0,
+    "activeAnimations": 0,
+    "overflow": false,
+    "consoleErrors": []
+  },
+  "notes": [
+    "Medições locais simuladas no mesmo Live Server, antes e depois das alterações. Resultados variam com dispositivo, rede e carga da máquina.",
+    "A hospedagem final não foi medida. O servidor local de npm start também oferece gzip, revalidação e leitura parcial de vídeo.",
+    "A correção posterior da âncora #inicio foi validada funcionalmente e não altera o carregamento sem hash usado nesta medição."
+  ]
+}

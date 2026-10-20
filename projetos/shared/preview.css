@@ -1,0 +1,30 @@
+.kapi-preview-back {
+  position: fixed;
+  left: 18px;
+  bottom: max(18px, env(safe-area-inset-bottom));
+  z-index: 10000;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid #ffffff36;
+  border-radius: 30px;
+  background: #000;
+  color: #fff;
+  box-shadow: 0 5px 24px #0002;
+  font:
+    500 12px/1.4 -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  text-decoration: none;
+  backdrop-filter: blur(12px);
+}
+.kapi-preview-back:hover {
+  background: #000;
+  color: #fff;
+}
+.kapi-preview-back:focus-visible {
+  outline: 2px solid #c4ff91;
+  outline-offset: 4px;
+}

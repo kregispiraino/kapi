@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/inter-latin-variable.woff2") format("woff2");
+}
+/* Marca em preto, branco e verde; neutros suaves para hierarquia e divisórias. */
+:root {
+  --paper: #fff;
+  --ink: #151515;
+  --muted: #646464;
+  --line: #e3e3e3;
+  --lime: #c4ff91;
+  --soft: #f7f7f7;
+  --footer: #000;
+  --line-on-dark: rgb(255 255 255 / 16%);
+  --muted-on-dark: #bdbdbd;
+  --font: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --gutter: clamp(24px, 4.5vw, 88px);
+  --space: clamp(48px, 5vw, 76px);
+}
