@@ -274,26 +274,25 @@
     font-size: 13px;
   }
   .trust-strip {
-    grid-template-columns: 1fr 1fr;
-    padding-block: 24px;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-block: 28px;
+    border-bottom: 0;
   }
   .trust-strip > div {
-    padding-inline: 18px;
+    display: grid;
+    grid-template-columns: minmax(0, min(46%, 170px)) minmax(0, 1fr);
+    align-items: center;
+    gap: 18px;
+    padding: 0;
+    border: 0;
   }
-  .trust-strip > div:nth-child(3) {
-    grid-column: 1 / -1;
-    margin-top: 20px;
-    padding-top: 20px;
-    border-left: 0;
-    border-top: 1px solid var(--line);
-    text-align: center;
-  }
-  .trust-strip > div:nth-child(3) .trust-value { justify-self: center; }
   .trust-strip strong {
-    font-size: 23px;
+    font-size: clamp(18px, 5vw, 22px);
+    white-space: nowrap;
   }
   .trust-strip > div > span {
-    margin-top: 6px;
+    margin-top: 0;
     font-size: 12px;
     line-height: 1.5;
   }
@@ -705,15 +704,6 @@
   .hero-cta .icon {
     width: 16px;
     height: 16px;
-  }
-  .trust-strip > div {
-    padding-inline: 14px;
-  }
-  .trust-strip strong {
-    font-size: 21px;
-  }
-  .trust-strip > div > span {
-    font-size: 11px;
   }
   .mobile-cta {
     padding-inline: 16px;
