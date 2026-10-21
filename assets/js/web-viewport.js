@@ -1,4 +1,4 @@
-// O palco mantém sua altura. A troca de dispositivo anima transform, sem relayout por quadro.
+// O palco mantém sua altura; apenas a moldura muda, sem esticar o conteúdo.
 export function createWebViewport({
   workspace,
   frame,
@@ -42,10 +42,17 @@ export function createWebViewport({
       0.1,
       Math.min(1, width / canvasWidth, (height - chromeHeight) / canvasHeight),
     );
+    const size = {
+      width: canvasWidth * scale,
+      height: canvasHeight * scale + chromeHeight,
+      scale,
+      chromeHeight,
+    };
     canvas.style.setProperty("--web-scale", String(scale));
-    frame.style.width = `${canvasWidth * scale}px`;
-    frame.style.height = `${canvasHeight * scale + chromeHeight}px`;
+    frame.style.width = `${size.width}px`;
+    frame.style.height = `${size.height}px`;
     workspace.dataset.ready = "true";
+    return size;
   }
   function refresh() {
     stop();
@@ -72,23 +79,37 @@ export function createWebViewport({
         String(button.dataset.deviceButton === device),
       ),
     );
-    fit();
+    const after = fit();
     if (!animate) {
       onRest();
       return;
     }
-    const after = frame.getBoundingClientRect();
     const run = generation;
     moving = true;
     workspace.dataset.resizing = "true";
-    const timing = { duration: 320, easing: "cubic-bezier(.22,1,.36,1)" };
+    const timing = { duration: 280, easing: "cubic-bezier(.22,1,.36,1)" };
+    // Preenche a moldura durante toda a troca, como object-fit: cover.
+    // Escala uniforme evita deformação e faixas vazias nos formatos estreitos.
+    const cover = Math.max(
+      1,
+      before.width / after.width,
+      (before.height - after.chromeHeight) / (after.height - after.chromeHeight),
+    );
     transitions = [
       frame.animate(
         [
           {
-            transform: `scale(${before.width / after.width}, ${before.height / after.height})`,
+            width: `${before.width}px`,
+            height: `${before.height}px`,
           },
-          { transform: "none" },
+          { width: `${after.width}px`, height: `${after.height}px` },
+        ],
+        timing,
+      ),
+      canvas.animate(
+        [
+          { transform: `scale(${after.scale * cover}) translateX(-50%)` },
+          { transform: `scale(${after.scale}) translateX(-50%)` },
         ],
         timing,
       ),

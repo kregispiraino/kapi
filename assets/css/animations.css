@@ -200,6 +200,7 @@ html.entry-active .entry-search[hidden] {
 }
 .web-browser {
   position: relative;
+  contain: layout;
   flex: none;
   width: min(100%, 880px);
   /* Keep resize events inside the workspace until the next fitted frame. */
@@ -224,8 +225,10 @@ html.entry-active .entry-search[hidden] {
     0 0 0 4px #ffffff80;
 }
 .web-canvas {
+  position: relative;
+  left: 50%;
   width: 100%;
-  transform: scale(var(--web-scale, 1));
+  transform: scale(var(--web-scale, 1)) translateX(-50%);
   transform-origin: top left;
   container: web-site / inline-size;
 }

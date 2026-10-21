@@ -228,5 +228,104 @@
       "added_js": 550,
       "added_css": 199
     }
+  },
+  "illustration_review": {
+    "date": "2026-10-20",
+    "lighthouse": {
+      "url": "http://127.0.0.1:3101/",
+      "conditions": "Mobile simulado padrão, mesma instalação do Lighthouse, servidor com gzip; execuções isoladas.",
+      "before": {
+        "score": 99,
+        "metrics": {
+          "first-contentful-paint": {
+            "value": 810.1601,
+            "display": "0.8 s"
+          },
+          "largest-contentful-paint": {
+            "value": 1897.3202,
+            "display": "1.9 s"
+          },
+          "speed-index": {
+            "value": 2495.493642948901,
+            "display": "2.5 s"
+          },
+          "total-blocking-time": {
+            "value": 1,
+            "display": "0 ms"
+          },
+          "cumulative-layout-shift": {
+            "value": 0.00015780502876755175,
+            "display": "0"
+          }
+        }
+      },
+      "after": {
+        "score": 99,
+        "metrics": {
+          "first-contentful-paint": {
+            "value": 796.4806999999998,
+            "display": "0.8 s"
+          },
+          "largest-contentful-paint": {
+            "value": 1895.9614000000001,
+            "display": "1.9 s"
+          },
+          "speed-index": {
+            "value": 2171.901728542828,
+            "display": "2.2 s"
+          },
+          "total-blocking-time": {
+            "value": 0,
+            "display": "0 ms"
+          },
+          "cumulative-layout-shift": {
+            "value": 0.00015780502876755175,
+            "display": "0"
+          }
+        }
+      }
+    },
+    "interaction_cpu_4x": [
+      {
+        "width": 390,
+        "longTasks": [],
+        "maxFrameMs": 33,
+        "p95FrameMs": 17,
+        "framesOver50ms": 0,
+        "peakAnimations": 2,
+        "layoutShift": 0,
+        "remainingAnimations": 0,
+        "overflow": false,
+        "errors": []
+      },
+      {
+        "width": 1440,
+        "longTasks": [],
+        "maxFrameMs": 33,
+        "p95FrameMs": 17,
+        "framesOver50ms": 0,
+        "peakAnimations": 2,
+        "layoutShift": 0,
+        "remainingAnimations": 0,
+        "overflow": false,
+        "errors": []
+      }
+    ],
+    "method": "Chromium com CPU 4x mais lenta, clique/toque reais alternando Desktop/Mobile e próximo site; quatro trocas de cada controle em 390 e 1440 px. Sem outros testes concorrentes durante a medição.",
+    "peak_animations_before": 10,
+    "peak_animations_after": 2,
+    "bundles_gzip_bytes": {
+      "site.js": 7569,
+      "site.css": 8713
+    },
+    "changes": [
+      "Autoplay não fica preso no foco de mouse/toque dos botões de dispositivo.",
+      "Hover limitado à moldura e a dispositivos com hover; pausa explícita e foco por teclado preservados.",
+      "Moldura muda em 280 ms, com conteúdo em escala uniforme cobrindo toda a área; sem deformação ou faixas vazias.",
+      "Transição entre exemplos em duas superfícies completas, com encerramento e liberação dos efeitos.",
+      "Entradas não cancelam no pointerdown, evitando deslocar o alvo durante o clique.",
+      "Um único temporizador, sem reinícios desnecessários; pausa fora de vista, aba oculta e movimento reduzido."
+    ],
+    "limitations": "Medições locais simuladas; não representam todos os aparelhos físicos ou condições de rede. Teste adicional em WebKit mobile e desktop."
   }
 }

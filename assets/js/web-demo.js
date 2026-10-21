@@ -16,7 +16,7 @@ export function initWebDemo() {
   const reduced = matchMedia("(prefers-reduced-motion: reduce)");
   const prefersReducedMotion = () => reduced.matches;
   let current = 0;
-  let timer;
+  let timer = 0;
   let visible = false;
   let paused = false;
   let busy = false;
@@ -24,6 +24,10 @@ export function initWebDemo() {
   let transitions = [];
   let viewport = null;
   let hovering = false;
+  function clearCycle() {
+    clearTimeout(timer);
+    timer = 0;
+  }
   function syncControls() {
     const disabled = prefersReducedMotion();
     pause.disabled = disabled;
@@ -69,16 +73,20 @@ export function initWebDemo() {
       visible &&
       !paused &&
       !hovering &&
-      !scene.contains(document.activeElement) &&
+      !(scene.contains(document.activeElement) && document.activeElement.matches(":focus-visible")) &&
       !document.documentElement.classList.contains("entry-active") &&
       !busy &&
       !viewport?.isMoving()
     );
   }
   function schedule() {
-    clearTimeout(timer);
-    if (!canCycle()) return;
+    if (!canCycle()) {
+      clearCycle();
+      return;
+    }
+    if (timer) return;
     timer = setTimeout(() => {
+      timer = 0;
       if (canCycle()) show((current + 1) % slides.length);
     }, 5500);
   }
@@ -88,7 +96,7 @@ export function initWebDemo() {
     return animation;
   }
   function show(index, manual = false) {
-    clearTimeout(timer);
+    clearCycle();
     viewport?.finish();
     settle();
     const outgoing = slides[current];
@@ -113,57 +121,20 @@ export function initWebDemo() {
     busy = true;
     workspace.dataset.transitioning = "true";
     const run = generation;
-    const movement = { duration: 650, easing: "cubic-bezier(.65,0,.35,1)" };
-    // Both art pages travel at the same speed through identical clipped frames.
+    // Duas superfícies completas: sem animar separadamente fotos e cada texto.
+    // A página de entrada fica opaca por baixo, evitando um quadro vazio.
+    const movement = { duration: 480, easing: "cubic-bezier(.22,1,.36,1)" };
+    address.textContent = incoming.dataset.domain;
     animate(
-      outgoing.querySelector(".web-art-page"),
-      [{ transform: "translateX(0)" }, { transform: "translateX(100%)" }],
+      outgoing,
+      [{ opacity: 1 }, { opacity: 0 }],
       movement,
     );
     animate(
-      incoming.querySelector(".web-art-page"),
-      [{ transform: "translateX(-100%)" }, { transform: "translateX(0)" }],
+      incoming,
+      [{ transform: "scale(1.025)" }, { transform: "none" }],
       movement,
     );
-    for (const selector of [
-      ".web-client-nav",
-      ".web-client-copy",
-      ".web-client-bottom",
-    ]) {
-      animate(
-        outgoing.querySelector(selector),
-        [
-          { opacity: 1, transform: "translateX(0)" },
-          { opacity: 0, transform: "translateX(24px)" },
-        ],
-        { duration: 240, easing: "ease-in" },
-      );
-      animate(
-        incoming.querySelector(selector),
-        [
-          { opacity: 0, transform: "translateX(-24px)" },
-          { opacity: 1, transform: "translateX(0)" },
-        ],
-        { duration: 440, delay: 150, easing: "cubic-bezier(.22,1,.36,1)" },
-      );
-    }
-    const addressOut = animate(address, [{ opacity: 1 }, { opacity: 0 }], {
-      duration: 220,
-    });
-    addressOut.finished
-      .then(() => {
-        if (run !== generation) return;
-        address.textContent = incoming.dataset.domain;
-        animate(
-          address,
-          [
-            { opacity: 0, transform: "translateX(-5px)" },
-            { opacity: 1, transform: "translateX(0)" },
-          ],
-          { duration: 240, easing: "ease-out" },
-        );
-      })
-      .catch(() => {});
     Promise.allSettled(transitions.map((animation) => animation.finished)).then(
       () => {
         if (run !== generation) return;
@@ -189,24 +160,31 @@ export function initWebDemo() {
     schedule();
   });
   window.addEventListener("pagehide", () => {
-    clearTimeout(timer);
+    clearCycle();
     viewport?.finish();
     settle();
   });
   window.addEventListener("pageshow", schedule);
   window.addEventListener("kapi:entry-complete", schedule);
-  scene.addEventListener("pointerenter", (event) => {
-    if (event.pointerType === "mouse") {
+  frame.addEventListener("pointerenter", (event) => {
+    if (event.pointerType === "mouse" && matchMedia("(hover: hover)").matches) {
       hovering = true;
       schedule();
     }
   });
-  scene.addEventListener("pointerleave", () => {
+  frame.addEventListener("pointerleave", () => {
     hovering = false;
     schedule();
   });
+  scene.addEventListener("pointerdown", (event) => {
+    // Um toque não herda a pausa de um cursor usado anteriormente.
+    if (event.pointerType !== "mouse") hovering = false;
+  });
   scene.addEventListener("focusin", schedule);
   scene.addEventListener("focusout", () => queueMicrotask(schedule));
+  // A modalidade de foco pode mudar sem trocar o elemento focado.
+  scene.addEventListener("pointerup", () => queueMicrotask(schedule));
+  scene.addEventListener("keydown", () => queueMicrotask(schedule));
   reduced.addEventListener("change", () => {
     if (prefersReducedMotion()) {
       viewport?.finish();
@@ -217,7 +195,7 @@ export function initWebDemo() {
   });
   new IntersectionObserver(
     ([entry]) => {
-      visible = entry.isIntersecting;
+      visible = entry.isIntersecting && entry.intersectionRatio >= 0.15;
       if (!visible) {
         viewport?.finish();
         settle();
@@ -232,7 +210,7 @@ export function initWebDemo() {
     canvas,
     reducedMotion: prefersReducedMotion,
     onStart: () => {
-      clearTimeout(timer);
+      clearCycle();
       settle();
     },
     onRest: schedule,

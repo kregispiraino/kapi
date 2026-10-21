@@ -1,7 +1,7 @@
 {
   "date": "2026-10-20",
   "status": "passed",
-  "automated_tests": 55,
+  "automated_tests": 62,
   "command": "npm test",
   "viewports": [
     320,
@@ -132,5 +132,23 @@
       "Movimento reduzido impede ou encerra efeitos imediatamente",
       "Inspeção visual: Elo azul e CTA final com degradê branco/verde em desktop e mobile"
     ]
+  },
+  "illustration_interaction_validation": {
+    "command": "npm test; npx playwright test tests/web-demo.spec.js",
+    "suite_passed": 62,
+    "final_targeted_tests_passed": 7,
+    "browsers": [
+      "Chromium desktop e toque mobile",
+      "WebKit desktop e toque mobile"
+    ],
+    "checks": [
+      "Autoplay continua nas duas direções com ponteiro e foco permanecendo nos controles.",
+      "Pausa escolhida permanece após trocar de formato; retomar volta a animar.",
+      "Teclado pausa durante o foco e retoma ao sair.",
+      "Trocas rápidas sem deformação, faixa vazia, deslocamento do palco ou animação pendente.",
+      "Clique durante entrada mantém o alvo entre pressionar e soltar.",
+      "Movimento reduzido, rolagem, menu, WhatsApp, consentimento e contadores preservados."
+    ],
+    "javascript_errors": []
   }
 }

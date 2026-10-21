@@ -55,18 +55,14 @@ window.addEventListener("beforeprint", finishAll);
 document.addEventListener("visibilitychange", () => {
   if (document.hidden) finishAll();
 });
-// Um controle nunca permanece em movimento enquanto recebe foco ou um toque.
-for (const event of ["focusin", "pointerdown"]) {
-  document.addEventListener(
-    event,
-    (e) => {
-      active.forEach((animation, element) => {
-        if (element.contains(e.target)) animation.cancel();
-      });
-    },
-    { passive: true },
-  );
-}
+// O teclado recebe um alvo estável. No toque/clique, cancelar a entrada entre
+// pointerdown e pointerup deslocava o controle e fazia a interação se perder.
+document.addEventListener("focusin", (event) => {
+  if (!event.target.matches(":focus-visible")) return;
+  active.forEach((animation, element) => {
+    if (element.contains(event.target)) animation.cancel();
+  });
+});
 
 export function initScrollMotion() {
   if (preference.matches || !("IntersectionObserver" in window)) return;
