@@ -1,7 +1,7 @@
 {
   "date": "2026-10-20",
   "status": "passed",
-  "automated_tests": 51,
+  "automated_tests": 55,
   "command": "npm test",
   "viewports": [
     320,
@@ -116,5 +116,21 @@
       "WebKit com toque: carrossel, desktop/mobile, imagens e textos dentro da moldura"
     ],
     "javascript_errors": []
+  },
+  "trust_motion_validation": {
+    "command": "npm test",
+    "suite_passed": 55,
+    "new_tests": 4,
+    "viewports": [
+      390,
+      1440
+    ],
+    "checks": [
+      "2026 até 2019 e 0 até 1000, sem reiniciar ao voltar à seção",
+      "Conversa direta digitada, com texto final acessível durante a animação",
+      "Altura dos destaques preservada durante a contagem",
+      "Movimento reduzido impede ou encerra efeitos imediatamente",
+      "Inspeção visual: Elo azul e CTA final com degradê branco/verde em desktop e mobile"
+    ]
   }
 }

@@ -380,12 +380,12 @@ html.entry-active .entry-search[hidden] {
 [data-web-slide="food"] .web-photo { object-position: center 55%; }
 [data-web-slide="food"] .web-art-caption { right: 26px; bottom: 24px; background: none; border: 0; padding: 0; text-align: right; }
 [data-web-slide="services"] .web-client-brand { font-family: var(--font); font-weight: 650; font-size: 29px; }
-[data-web-slide="services"] .web-client-brand > span { color: #c4ff91; }
+[data-web-slide="services"] .web-client-brand > span { color: #8bbcff; }
 [data-web-slide="services"] .web-client-copy h2 { font-family: var(--font); font-size: 46px; font-weight: 500; line-height: 1.06; letter-spacing: -0.055em; }
-[data-web-slide="services"] .web-client-copy h2 em { font-style: normal; font-weight: inherit; color: #c4ff91; }
-[data-web-slide="services"] .web-client-eyebrow::before { content: ""; display: inline-block; width: 5px; height: 5px; margin-right: 8px; border-radius: 50%; background: #c4ff91; vertical-align: 1px; }
-[data-web-slide="services"] .web-client-cta { background: #c4ff91; border-radius: 4px; }
-[data-web-slide="services"] .web-art-page::after { background: linear-gradient(90deg, #111e1bf5 12%, #111e1bd4 39%, #111e1b33 90%); }
+[data-web-slide="services"] .web-client-copy h2 em { font-style: normal; font-weight: inherit; color: #8bbcff; }
+[data-web-slide="services"] .web-client-eyebrow::before { content: ""; display: inline-block; width: 5px; height: 5px; margin-right: 8px; border-radius: 50%; background: #8bbcff; vertical-align: 1px; }
+[data-web-slide="services"] .web-client-cta { background: #2463cf; color: #fff; border-radius: 4px; }
+[data-web-slide="services"] .web-art-page::after { background: linear-gradient(90deg, #0b1830f5 12%, #0b1830d4 39%, #0b183033 90%); }
 [data-web-slide="services"] .web-photo { object-position: center 40%; }
 [data-web-slide="services"] .web-client-bottom > span:first-child { font-family: var(--font); font-size: 9px; font-weight: 550; }
 [data-web-slide="services"] .web-client-bottom > span:last-child { font-variant-numeric: tabular-nums; }
@@ -457,7 +457,7 @@ html.entry-active .entry-search[hidden] {
   [data-web-slide="food"] .web-client-description { max-width: 235px; }
   [data-web-slide="food"] .web-photo { object-position: 44% center; }
   [data-web-slide="services"] .web-client-copy h2 { font-size: 34px; line-height: 1.1; }
-  [data-web-slide="services"] .web-art-page::after { background: linear-gradient(0deg, #111e1b 3%, #111e1be3 43%, #111e1b40 82%, #111e1b80); }
+  [data-web-slide="services"] .web-art-page::after { background: linear-gradient(0deg, #0b1830 3%, #0b1830e3 43%, #0b183040 82%, #0b183080); }
   [data-web-slide="services"] .web-photo { object-position: 65% center; }
 }
 @media (max-width: 640px) {

@@ -373,17 +373,30 @@ address {
   border-left: 0;
 }
 .trust-strip strong {
-  display: block;
+  display: grid;
+  font-variant-numeric: tabular-nums;
   font-size: 28px;
   line-height: 1.2;
   letter-spacing: -0.04em;
   font-weight: 400;
 }
-.trust-strip span {
+.trust-strip > div > span {
   display: block;
   margin-top: 8px;
   font-size: 12px;
   color: var(--muted);
+}
+.trust-final, .trust-value { grid-area: 1 / 1; }
+.trust-value { display: none; justify-self: start; }
+.is-counting .trust-final { opacity: 0; }
+.is-counting .trust-value { display: block; }
+[data-trust="conversation"].is-counting .trust-value::after {
+  content: "";
+  display: inline-block;
+  height: 0.8em;
+  margin-left: 3px;
+  border-right: 1px solid currentColor;
+  vertical-align: -0.02em;
 }
 /* Portfolio */
 .portfolio-grid {
@@ -680,7 +693,12 @@ details[open] .faq-symbol::after {
 }
 /* Final CTA and institutional footer */
 .closing {
-  background: var(--lime);
+  background:
+    linear-gradient(180deg, #fff, #ffffffb3 24%, #ffffff00 64%),
+    radial-gradient(ellipse at 14% 92%, #c4ff91db, transparent 58%),
+    radial-gradient(ellipse at 84% 100%, #c4ff91d1, transparent 51%),
+    radial-gradient(ellipse at 55% 78%, #c4ff91b8, transparent 56%),
+    #fff;
   padding-block: 56px;
   display: grid;
   grid-template-columns: 1.5fr 1fr;

@@ -205,5 +205,28 @@
     "Medições locais simuladas no mesmo Live Server, antes e depois das alterações. Resultados variam com dispositivo, rede e carga da máquina.",
     "A hospedagem final não foi medida. O servidor local de npm start também oferece gzip, revalidação e leitura parcial de vídeo.",
     "A correção posterior da âncora #inicio foi validada funcionalmente e não altera o carregamento sem hash usado nesta medição."
-  ]
+  ],
+  "trust_motion_review": {
+    "date": "2026-10-20",
+    "method": "Chromium mobile 390x844, CPU 4x, 150 quadros durante entrada dos destaques; teste local isolado, sem Pixel autorizado.",
+    "longTasks": [],
+    "layoutShift": 0.0006481593118113664,
+    "maxFrameMs": 17,
+    "framesOver50ms": 0,
+    "activeCounters": 0,
+    "activeAnimations": 0,
+    "overflow": false,
+    "values": [
+      "Desde 2019",
+      "+1000",
+      "Conversa direta"
+    ],
+    "errors": [],
+    "bundles_gzip_bytes": {
+      "site.js": 7554,
+      "site.css": 8625,
+      "added_js": 550,
+      "added_css": 199
+    }
+  }
 }
